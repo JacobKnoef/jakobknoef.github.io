@@ -10,14 +10,14 @@
       "continent": "Oceania"
     },
     "arrival": {
-      "iata": "NAD",
+      "iata": "NAN",
       "airport": "Nadi",
       "country": "Fiji",
       "continent": "Oceania"
     },
     "aircraft": "Boeing 737-800",
     "registration": null,
-    "route": "CHC-NAD",
+    "route": "CHC-NAN",
     "distanceKm": 2700,
     "flightTimeHours": 3.375
   },
@@ -26,7 +26,7 @@
     "airline": "Fiji Airways",
     "flightNumber": "FJ451",
     "departure": {
-      "iata": "NAD",
+      "iata": "NAN",
       "airport": "Nadi",
       "country": "Fiji",
       "continent": "Oceania"
@@ -39,7 +39,7 @@
     },
     "aircraft": "Boeing 737-800",
     "registration": null,
-    "route": "NAD-CHC",
+    "route": "NAN-CHC",
     "distanceKm": 2700,
     "flightTimeHours": 3.375
   },

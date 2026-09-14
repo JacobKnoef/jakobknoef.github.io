@@ -1,0 +1,303 @@
+{
+  "ADL": {
+    "name": "Adelaide International Airport",
+    "city": "Adelaide",
+    "country": "Australia",
+    "latitude": -34.945,
+    "longitude": 138.531006
+  },
+  "AKL": {
+    "name": "Auckland International Airport",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "latitude": -37.0080986023,
+    "longitude": 174.792007446
+  },
+  "ARN": {
+    "name": "Stockholm Arlanda Airport",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "latitude": 59.651901245117,
+    "longitude": 17.918600082397
+  },
+  "BCN": {
+    "name": "Barcelona El Prat Airport",
+    "city": "Barcelona",
+    "country": "Spain",
+    "latitude": 41.2971,
+    "longitude": 2.07846
+  },
+  "BER": {
+    "name": "Berlin Brandenburg Airport",
+    "city": "Berlin",
+    "country": "Germany",
+    "latitude": 52.3659,
+    "longitude": 13.4969
+  },
+  "BKK": {
+    "name": "Suvarnabhumi Airport",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "latitude": 13.6810998917,
+    "longitude": 100.747001648
+  },
+  "BNE": {
+    "name": "Brisbane Airport",
+    "city": "Brisbane",
+    "country": "Australia",
+    "latitude": -27.3841991425,
+    "longitude": 153.117004395
+  },
+  "CBR": {
+    "name": "Canberra Airport",
+    "city": "Canberra",
+    "country": "Australia",
+    "latitude": -35.3069000244,
+    "longitude": 149.195007324
+  },
+  "CDG": {
+    "name": "Charles de Gaulle Airport",
+    "city": "Paris",
+    "country": "France",
+    "latitude": 49.012798,
+    "longitude": 2.55
+  },
+  "CHC": {
+    "name": "Christchurch International Airport",
+    "city": "Christchurch",
+    "country": "New Zealand",
+    "latitude": -43.4893989563,
+    "longitude": 172.531997681
+  },
+  "CPH": {
+    "name": "Copenhagen Airport",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "latitude": 55.6179008484,
+    "longitude": 12.6560001373
+  },
+  "CRL": {
+    "name": "Brussels South Charleroi Airport",
+    "city": "Charleroi",
+    "country": "Belgium",
+    "latitude": 50.459202,
+    "longitude": 4.45382
+  },
+  "DOH": {
+    "name": "Hamad International Airport",
+    "city": "Doha",
+    "country": "Qatar",
+    "latitude": 25.273056,
+    "longitude": 51.608056
+  },
+  "EDI": {
+    "name": "Edinburgh Airport",
+    "city": "Edinburgh",
+    "country": "United Kingdom",
+    "latitude": 55.9500007629,
+    "longitude": -3.37249994278
+  },
+  "FRA": {
+    "name": "Frankfurt Airport",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "latitude": 50.033333,
+    "longitude": 8.570556
+  },
+  "GOA": {
+    "name": "Genoa Cristoforo Colombo Airport",
+    "city": "Genoa",
+    "country": "Italy",
+    "latitude": 44.4133,
+    "longitude": 8.8375
+  },
+  "HEL": {
+    "name": "Helsinki Airport",
+    "city": "Helsinki",
+    "country": "Finland",
+    "latitude": 60.317199707031,
+    "longitude": 24.963300704956
+  },
+  "IAH": {
+    "name": "George Bush Intercontinental Airport",
+    "city": "Houston",
+    "country": "United States",
+    "latitude": 29.9843997955,
+    "longitude": -95.3414001465
+  },
+  "ICN": {
+    "name": "Incheon International Airport",
+    "city": "Seoul",
+    "country": "South Korea",
+    "latitude": 37.4691009521,
+    "longitude": 126.450996399
+  },
+  "IST": {
+    "name": "Istanbul Airport",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "latitude": 41.275278,
+    "longitude": 28.751944
+  },
+  "KUL": {
+    "name": "Kuala Lumpur International Airport",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "latitude": 2.74557995796,
+    "longitude": 101.709999084
+  },
+  "LHR": {
+    "name": "London Heathrow Airport",
+    "city": "London",
+    "country": "United Kingdom",
+    "latitude": 51.4706,
+    "longitude": -0.461941
+  },
+  "LIN": {
+    "name": "Milan Linate Airport",
+    "city": "Milan",
+    "country": "Italy",
+    "latitude": 45.445099,
+    "longitude": 9.27674
+  },
+  "LYS": {
+    "name": "Lyon Saint-Exupéry Airport",
+    "city": "Lyon",
+    "country": "France",
+    "latitude": 45.725556,
+    "longitude": 5.081111
+  },
+  "MAD": {
+    "name": "Adolfo Suárez Madrid-Barajas Airport",
+    "city": "Madrid",
+    "country": "Spain",
+    "latitude": 40.471926,
+    "longitude": -3.56264
+  },
+  "MEL": {
+    "name": "Melbourne Airport",
+    "city": "Melbourne",
+    "country": "Australia",
+    "latitude": -37.673302,
+    "longitude": 144.843002
+  },
+  "MUC": {
+    "name": "Munich Airport",
+    "city": "Munich",
+    "country": "Germany",
+    "latitude": 48.353802,
+    "longitude": 11.7861
+  },
+  "MXP": {
+    "name": "Milan Malpensa Airport",
+    "city": "Milan",
+    "country": "Italy",
+    "latitude": 45.6306,
+    "longitude": 8.72811
+  },
+  "NAN": {
+    "name": "Nadi International Airport",
+    "city": "Nadi",
+    "country": "Fiji",
+    "latitude": -17.761822,
+    "longitude": 177.437843
+  },
+  "NPE": {
+    "name": "Hawke's Bay Airport",
+    "city": "Napier",
+    "country": "New Zealand",
+    "latitude": -39.465801,
+    "longitude": 176.869995
+  },
+  "NPL": {
+    "name": "New Plymouth Airport",
+    "city": "New Plymouth",
+    "country": "New Zealand",
+    "latitude": -39.0085983276,
+    "longitude": 174.179000854
+  },
+  "OPO": {
+    "name": "Francisco Sá Carneiro Airport",
+    "city": "Porto",
+    "country": "Portugal",
+    "latitude": 41.2481002808,
+    "longitude": -8.68138980865
+  },
+  "PER": {
+    "name": "Perth Airport",
+    "city": "Perth",
+    "country": "Australia",
+    "latitude": -31.9402999878,
+    "longitude": 115.967002869
+  },
+  "PVG": {
+    "name": "Shanghai Pudong International Airport",
+    "city": "Shanghai",
+    "country": "China",
+    "latitude": 31.1434001923,
+    "longitude": 121.805000305
+  },
+  "ROT": {
+    "name": "Rotorua Airport",
+    "city": "Rotorua",
+    "country": "New Zealand",
+    "latitude": -38.1091995239,
+    "longitude": 176.317001343
+  },
+  "SIN": {
+    "name": "Singapore Changi Airport",
+    "city": "Singapore",
+    "country": "Singapore",
+    "latitude": 1.35019,
+    "longitude": 103.994003
+  },
+  "SOF": {
+    "name": "Sofia Airport",
+    "city": "Sofia",
+    "country": "Bulgaria",
+    "latitude": 42.6966934204,
+    "longitude": 23.4114360809
+  },
+  "SYD": {
+    "name": "Sydney Kingsford Smith Airport",
+    "city": "Sydney",
+    "country": "Australia",
+    "latitude": -33.9460983276,
+    "longitude": 151.177001953
+  },
+  "TIA": {
+    "name": "Tirana International Airport",
+    "city": "Tirana",
+    "country": "Albania",
+    "latitude": 41.4146995544,
+    "longitude": 19.7206001282
+  },
+  "TLL": {
+    "name": "Tallinn Airport",
+    "city": "Tallinn",
+    "country": "Estonia",
+    "latitude": 59.4132995605,
+    "longitude": 24.8327999115
+  },
+  "TSF": {
+    "name": "Treviso Airport",
+    "city": "Treviso",
+    "country": "Italy",
+    "latitude": 45.648399,
+    "longitude": 12.1944
+  },
+  "WLG": {
+    "name": "Wellington International Airport",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "latitude": -41.3272018433,
+    "longitude": 174.804992676
+  },
+  "ZRH": {
+    "name": "Zürich Airport",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "latitude": 47.464699,
+    "longitude": 8.54917
+  }
+}
