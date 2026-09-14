@@ -165,3 +165,115 @@ footer {
     }
 
 }
+
+.page-header {
+    padding: 90px 0 50px;
+}
+
+.page-title-row {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.page-title-row h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+.flight-count {
+    color: #7f91a5;
+    font-size: 15px;
+    padding-bottom: 8px;
+}
+
+.flight-tools {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.flight-tools input,
+.flight-tools select {
+    width: 100%;
+    background: #111821;
+    color: white;
+    border: 1px solid #252c36;
+    border-radius: 10px;
+    padding: 15px 16px;
+    font-size: 14px;
+}
+
+.flight-tools input::placeholder {
+    color: #657182;
+}
+
+.flight-table-section {
+    margin-bottom: 120px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #252c36;
+    border-radius: 14px;
+}
+
+.flight-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.flight-table th {
+    text-align: left;
+    padding: 16px 18px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7f91a5;
+    background: #111821;
+    border-bottom: 1px solid #252c36;
+}
+
+.flight-table td {
+    padding: 18px;
+    border-bottom: 1px solid #1d242d;
+    font-size: 14px;
+}
+
+.flight-table tbody tr:hover {
+    background: #111821;
+}
+
+.flight-route {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.flight-number {
+    color: #aeb8c4;
+}
+
+.flight-aircraft {
+    color: #aeb8c4;
+}
+
+.flight-distance {
+    color: #aeb8c4;
+}
+
+@media (max-width: 700px) {
+
+    .page-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flight-tools {
+        grid-template-columns: 1fr;
+    }
+
+}

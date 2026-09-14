@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flight Log | Jakob's Travels</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">JAKOB'S TRAVELS</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="flights.html">Flight Log</a>
+            <a href="#">Flight Map</a>
+            <a href="#">Countries</a>
+            <a href="#">Statistics</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="page-header">
+
+            <p class="eyebrow">FLIGHT DATABASE</p>
+
+            <div class="page-title-row">
+                <h1>Flight Log</h1>
+                <span id="flight-count" class="flight-count">— flights</span>
+            </div>
+
+            <p class="intro">
+                Every flight I've taken, recorded in one place.
+            </p>
+
+        </section>
+
+
+        <section class="flight-tools">
+
+            <input
+                type="text"
+                id="flight-search"
+                placeholder="Search airline, airport, flight number, aircraft..."
+            >
+
+            <select id="airline-filter">
+                <option value="all">All airlines</option>
+            </select>
+
+        </section>
+
+
+        <section class="flight-table-section">
+
+            <div class="table-wrapper">
+
+                <table class="flight-table">
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Flight</th>
+                            <th>Route</th>
+                            <th>Airline</th>
+                            <th>Aircraft</th>
+                            <th>Distance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="flight-table-body">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Jakob's Travels</p>
+    </footer>
+
+
+    <script src="js/flight-log.js"></script>
+
+</body>
+
+</html>
