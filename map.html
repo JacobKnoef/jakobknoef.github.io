@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flight Map | Jakob's Travels</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">JAKOB'S TRAVELS</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="flights.html">Flight Log</a>
+            <a href="map.html">Flight Map</a>
+            <a href="#">Countries</a>
+            <a href="#">Statistics</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="page-header">
+
+            <p class="eyebrow">ROUTE NETWORK</p>
+
+            <div class="page-title-row">
+                <h1>Flight Map</h1>
+            </div>
+
+            <p class="intro">
+                Every airport and route I've flown.
+            </p>
+
+        </section>
+
+        <section class="flight-map-section">
+
+            <div id="flight-map"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Jakob's Travels</p>
+    </footer>
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="js/flight-map.js"></script>
+
+</body>
+
+</html>
