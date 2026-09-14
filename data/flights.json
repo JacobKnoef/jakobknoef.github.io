@@ -1,0 +1,2048 @@
+[
+  {
+    "date": "2016-03-22",
+    "airline": "Fiji Airways",
+    "flightNumber": "FJ450",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "NAD",
+      "airport": "Nadi",
+      "country": "Fiji",
+      "continent": "Oceania"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": null,
+    "route": "CHC-NAD",
+    "distanceKm": 2700,
+    "flightTimeHours": 3.375
+  },
+  {
+    "date": "2016-03-29",
+    "airline": "Fiji Airways",
+    "flightNumber": "FJ451",
+    "departure": {
+      "iata": "NAD",
+      "airport": "Nadi",
+      "country": "Fiji",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": null,
+    "route": "NAD-CHC",
+    "distanceKm": 2700,
+    "flightTimeHours": 3.375
+  },
+  {
+    "date": "2017-01-01",
+    "airline": "Air New Zealand",
+    "flightNumber": null,
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "BNE",
+      "airport": "Brisbane",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": null,
+    "registration": null,
+    "route": "CHC-BNE",
+    "distanceKm": 2500,
+    "flightTimeHours": 3.125
+  },
+  {
+    "date": "2017-01-01",
+    "airline": "Air New Zealand",
+    "flightNumber": null,
+    "departure": {
+      "iata": "BNE",
+      "airport": "Brisbane",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": null,
+    "registration": null,
+    "route": "BNE-CHC",
+    "distanceKm": 2500,
+    "flightTimeHours": 3.125
+  },
+  {
+    "date": "2018-01-01",
+    "airline": "Air New Zealand",
+    "flightNumber": null,
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": null,
+    "registration": null,
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2018-01-01",
+    "airline": "Air New Zealand",
+    "flightNumber": null,
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": null,
+    "registration": null,
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2021-07-22",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5774",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "NPE",
+      "airport": "Napier",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MVR",
+    "route": "CHC-NPE",
+    "distanceKm": 500,
+    "flightTimeHours": 0.625
+  },
+  {
+    "date": "2021-07-25",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5020",
+    "departure": {
+      "iata": "NPE",
+      "airport": "Napier",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MZC",
+    "route": "NPE-AKL",
+    "distanceKm": 330,
+    "flightTimeHours": 0.4125
+  },
+  {
+    "date": "2021-07-25",
+    "airline": null,
+    "flightNumber": null,
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": null,
+    "registration": null,
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2022-03-25",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5370",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MVC",
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2022-03-27",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ377",
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXF",
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2022-06-03",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ378",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXC",
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2022-06-06",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5387",
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MVV",
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2022-09-23",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ215",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320N",
+    "registration": "ZK-NHF",
+    "route": "CHC-MEL",
+    "distanceKm": 2400,
+    "flightTimeHours": 3
+  },
+  {
+    "date": "2022-10-03",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ212",
+    "departure": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320N",
+    "registration": "ZK-NHA",
+    "route": "MEL-CHC",
+    "distanceKm": 2400,
+    "flightTimeHours": 3
+  },
+  {
+    "date": "2022-12-07",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ542",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OAB",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2022-12-13",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ559",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXD",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2022-04-07",
+    "airline": "Jetstar",
+    "flightNumber": "JQ286",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFU",
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2023-04-10",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ329",
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OJQ",
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2023-06-02",
+    "airline": "Jetstar",
+    "flightNumber": "JQ236",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VGD",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2023-06-05",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ28",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "IAH",
+      "airport": "Houston",
+      "country": "USA",
+      "continent": "North America"
+    },
+    "aircraft": "Boeing 777-300ER",
+    "registration": "ZK-OKQ",
+    "route": "AKL-IAH",
+    "distanceKm": 11900,
+    "flightTimeHours": 14.875
+  },
+  {
+    "date": "2023-06-05",
+    "airline": "United Airlines",
+    "flightNumber": "UA5",
+    "departure": {
+      "iata": "IAH",
+      "airport": "Houston",
+      "country": "USA",
+      "continent": "North America"
+    },
+    "arrival": {
+      "iata": "LHR",
+      "airport": "London",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 787-900",
+    "registration": "N15969",
+    "route": "IAH-LHR",
+    "distanceKm": 7700,
+    "flightTimeHours": 9.625
+  },
+  {
+    "date": "2023-06-06",
+    "airline": "British Airways",
+    "flightNumber": "BA1460",
+    "departure": {
+      "iata": "LHR",
+      "airport": "London",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "EDI",
+      "airport": "Edinburgh",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "G-TTOE",
+    "route": "LHR-EDI",
+    "distanceKm": 530,
+    "flightTimeHours": 0.6625
+  },
+  {
+    "date": "2023-06-16",
+    "airline": "Lufthansa",
+    "flightNumber": "LH1527",
+    "departure": {
+      "iata": "EDI",
+      "airport": "Edinburgh",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "FRA",
+      "airport": "Frankfurt",
+      "country": "Germany",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321-200",
+    "registration": "D-AIDX",
+    "route": "EDI-FRA",
+    "distanceKm": 1000,
+    "flightTimeHours": 1.25
+  },
+  {
+    "date": "2023-06-16",
+    "airline": "Lufthansa",
+    "flightNumber": "LH0850",
+    "departure": {
+      "iata": "FRA",
+      "airport": "Frankfurt",
+      "country": "Germany",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321-200",
+    "registration": "D-AIDD",
+    "route": "FRA-HEL",
+    "distanceKm": 1500,
+    "flightTimeHours": 1.875
+  },
+  {
+    "date": "2023-06-18",
+    "airline": "Norwegian Air",
+    "flightNumber": "D84290",
+    "departure": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "ARN",
+      "airport": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "SE-RPI",
+    "route": "HEL-ARN",
+    "distanceKm": 400,
+    "flightTimeHours": 0.5
+  },
+  {
+    "date": "2023-06-20",
+    "airline": "SAS",
+    "flightNumber": "SK2541",
+    "departure": {
+      "iata": "ARN",
+      "airport": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "EDI",
+      "airport": "Edinburgh",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A320N",
+    "registration": "EI-SIU",
+    "route": "ARN-EDI",
+    "distanceKm": 1300,
+    "flightTimeHours": 1.625
+  },
+  {
+    "date": "2023-06-21",
+    "airline": "Ryanair",
+    "flightNumber": "FR5160",
+    "departure": {
+      "iata": "EDI",
+      "airport": "Edinburgh",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "SOF",
+      "airport": "Sofia",
+      "country": "Bulgaria",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737 MAX 8",
+    "registration": "EI-HGP",
+    "route": "EDI-SOF",
+    "distanceKm": 2400,
+    "flightTimeHours": 3
+  },
+  {
+    "date": "2023-06-26",
+    "airline": "Ryanair",
+    "flightNumber": "FR6427",
+    "departure": {
+      "iata": "SOF",
+      "airport": "Sofia",
+      "country": "Bulgaria",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "TSF",
+      "airport": "Venice",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737 MAX 8",
+    "registration": "SP-RZD",
+    "route": "SOF-TSF",
+    "distanceKm": 1100,
+    "flightTimeHours": 1.375
+  },
+  {
+    "date": "2023-07-09",
+    "airline": "Korean Air",
+    "flightNumber": "KE928",
+    "departure": {
+      "iata": "MXP",
+      "airport": "Milan",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "ICN",
+      "airport": "Seoul",
+      "country": "South Korea",
+      "continent": "Asia"
+    },
+    "aircraft": "Boeing 777-300ER",
+    "registration": "HL7783",
+    "route": "MXP-ICN",
+    "distanceKm": 8800,
+    "flightTimeHours": 11
+  },
+  {
+    "date": "2023-07-10",
+    "airline": "Korean Air",
+    "flightNumber": "KE411",
+    "departure": {
+      "iata": "ICN",
+      "airport": "Seoul",
+      "country": "South Korea",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A330-200",
+    "registration": "HL8211",
+    "route": "ICN-AKL",
+    "distanceKm": 9600,
+    "flightTimeHours": 12
+  },
+  {
+    "date": "2023-07-11",
+    "airline": "Jetstar",
+    "flightNumber": "JQ233",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFO",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2023-09-27",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ526",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXA",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2023-09-27",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ173",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "PER",
+      "airport": "Perth",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A330-200",
+    "registration": "EC-NBN",
+    "route": "AKL-PER",
+    "distanceKm": 5300,
+    "flightTimeHours": 6.625
+  },
+  {
+    "date": "2023-10-08",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ174",
+    "departure": {
+      "iata": "PER",
+      "airport": "Perth",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A330-201",
+    "registration": "EC-NBN",
+    "route": "PER-AKL",
+    "distanceKm": 5300,
+    "flightTimeHours": 6.625
+  },
+  {
+    "date": "2023-10-09",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ531",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OJS",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2023-10-20",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ332",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXE",
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2023-10-23",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ329",
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXK",
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2023-12-26",
+    "airline": "Emirates",
+    "flightNumber": "EK413",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "SYD",
+      "airport": "Sydney",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A380-800",
+    "registration": "A6-EVE",
+    "route": "CHC-SYD",
+    "distanceKm": 2100,
+    "flightTimeHours": 2.625
+  },
+  {
+    "date": "2024-01-08",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ226",
+    "departure": {
+      "iata": "SYD",
+      "airport": "Sydney",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320N",
+    "registration": "ZK-NHD",
+    "route": "SYD-CHC",
+    "distanceKm": 2100,
+    "flightTimeHours": 2.625
+  },
+  {
+    "date": "2024-01-25",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ8766",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "NPL",
+      "airport": "New Plymouth",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Bombardier Dash 8-300",
+    "registration": "ZK-NEP",
+    "route": "CHC-NPL",
+    "distanceKm": 450,
+    "flightTimeHours": 0.5625
+  },
+  {
+    "date": "2024-02-06",
+    "airline": "Jetstar",
+    "flightNumber": "JQ237",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFP",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2024-03-15",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ572",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXL",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2024-03-18",
+    "airline": "Jetstar",
+    "flightNumber": "JQ241",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFU",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2024-03-28",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5782",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "ROT",
+      "airport": "Rotorua",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MVO",
+    "route": "CHC-ROT",
+    "distanceKm": 600,
+    "flightTimeHours": 0.75
+  },
+  {
+    "date": "2024-04-01",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5781",
+    "departure": {
+      "iata": "ROT",
+      "airport": "Rotorua",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MZA",
+    "route": "ROT-CHC",
+    "distanceKm": 600,
+    "flightTimeHours": 0.75
+  },
+  {
+    "date": "2024-06-17",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ211",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320N",
+    "registration": "ZK-NHB",
+    "route": "CHC-MEL",
+    "distanceKm": 2400,
+    "flightTimeHours": 3
+  },
+  {
+    "date": "2024-06-17",
+    "airline": "Thai Airways",
+    "flightNumber": "TG466",
+    "departure": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "BKK",
+      "airport": "Bangkok",
+      "country": "Thailand",
+      "continent": "Asia"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "HS-THF",
+    "route": "MEL-BKK",
+    "distanceKm": 7300,
+    "flightTimeHours": 9.125
+  },
+  {
+    "date": "2024-06-17",
+    "airline": "Thai Airways",
+    "flightNumber": "TG900",
+    "departure": {
+      "iata": "BKK",
+      "airport": "Bangkok",
+      "country": "Thailand",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "IST",
+      "airport": "Istanbul",
+      "country": "Turkey",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "HS-THP",
+    "route": "BKK-IST",
+    "distanceKm": 7500,
+    "flightTimeHours": 9.375
+  },
+  {
+    "date": "2024-06-18",
+    "airline": "Turkish Airlines",
+    "flightNumber": "TK1725",
+    "departure": {
+      "iata": "IST",
+      "airport": "Istanbul",
+      "country": "Turkey",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "BER",
+      "airport": "Berlin",
+      "country": "Germany",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A330-200",
+    "registration": "TC-JIP",
+    "route": "IST-BER",
+    "distanceKm": 1700,
+    "flightTimeHours": 2.125
+  },
+  {
+    "date": "2024-07-20",
+    "airline": "Air France",
+    "flightNumber": "AF7369",
+    "departure": {
+      "iata": "LYS",
+      "airport": "Lyon",
+      "country": "France",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "CDG",
+      "airport": "Paris",
+      "country": "France",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "F-HIXB",
+    "route": "LYS-CDG",
+    "distanceKm": 400,
+    "flightTimeHours": 0.5
+  },
+  {
+    "date": "2024-07-21",
+    "airline": "Air France",
+    "flightNumber": "AF1750",
+    "departure": {
+      "iata": "CDG",
+      "airport": "Paris",
+      "country": "France",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "CPH",
+      "airport": "Copenhagen",
+      "country": "Denmark",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "F-HDRF",
+    "route": "CDG-CPH",
+    "distanceKm": 1000,
+    "flightTimeHours": 1.25
+  },
+  {
+    "date": "2024-07-28",
+    "airline": "Ryanair",
+    "flightNumber": "FR3606",
+    "departure": {
+      "iata": "CPH",
+      "airport": "Copenhagen",
+      "country": "Denmark",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "SOF",
+      "airport": "Sofia",
+      "country": "Bulgaria",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "9H-QEC",
+    "route": "CPH-SOF",
+    "distanceKm": 1700,
+    "flightTimeHours": 2.125
+  },
+  {
+    "date": "2024-08-07",
+    "airline": "Turkish Airlines",
+    "flightNumber": "TK1028",
+    "departure": {
+      "iata": "SOF",
+      "airport": "Sofia",
+      "country": "Bulgaria",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "IST",
+      "airport": "Istanbul",
+      "country": "Turkey",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321-200",
+    "registration": "TC-JTP",
+    "route": "SOF-IST",
+    "distanceKm": 500,
+    "flightTimeHours": 0.625
+  },
+  {
+    "date": "2024-08-07",
+    "airline": "Thai Airways",
+    "flightNumber": "TG901",
+    "departure": {
+      "iata": "IST",
+      "airport": "Istanbul",
+      "country": "Turkey",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "BKK",
+      "airport": "Bangkok",
+      "country": "Thailand",
+      "continent": "Asia"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "HS-THG",
+    "route": "IST-BKK",
+    "distanceKm": 7500,
+    "flightTimeHours": 9.375
+  },
+  {
+    "date": "2024-08-08",
+    "airline": "Thai Airways",
+    "flightNumber": "TG461",
+    "departure": {
+      "iata": "BKK",
+      "airport": "Bangkok",
+      "country": "Thailand",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "HS-THE",
+    "route": "BKK-MEL",
+    "distanceKm": 7300,
+    "flightTimeHours": 9.125
+  },
+  {
+    "date": "2024-08-09",
+    "airline": "Jetstar",
+    "flightNumber": "JQ173",
+    "departure": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFF",
+    "route": "MEL-CHC",
+    "distanceKm": 2400,
+    "flightTimeHours": 3
+  },
+  {
+    "date": "2024-10-25",
+    "airline": "Jetstar",
+    "flightNumber": "JQ228",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VGI",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2024-10-29",
+    "airline": "Jetstar",
+    "flightNumber": "JQ239",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFI",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2025-04-04",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ211",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320N",
+    "registration": "ZK-NHA",
+    "route": "CHC-MEL",
+    "distanceKm": 2400,
+    "flightTimeHours": 3
+  },
+  {
+    "date": "2025-04-04",
+    "airline": "Qantas",
+    "flightNumber": "QF1276",
+    "departure": {
+      "iata": "MEL",
+      "airport": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CBR",
+      "airport": "Canberra",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A220-300",
+    "registration": "VH-X4D",
+    "route": "MEL-CBR",
+    "distanceKm": 470,
+    "flightTimeHours": 0.5875
+  },
+  {
+    "date": "2025-04-09",
+    "airline": "Qantas",
+    "flightNumber": "QF139",
+    "departure": {
+      "iata": "SYD",
+      "airport": "Sydney",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "VH-VZL",
+    "route": "SYD-CHC",
+    "distanceKm": 2100,
+    "flightTimeHours": 2.625
+  },
+  {
+    "date": "2025-05-27",
+    "airline": "Singapore Airlines",
+    "flightNumber": "SQ298",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "SIN",
+      "airport": "Singapore",
+      "country": "Singapore",
+      "continent": "Asia"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "9V-SMG",
+    "route": "CHC-SIN",
+    "distanceKm": 8400,
+    "flightTimeHours": 10.5
+  },
+  {
+    "date": "2025-05-27",
+    "airline": "Singapore Airlines",
+    "flightNumber": "SQ378",
+    "departure": {
+      "iata": "SIN",
+      "airport": "Singapore",
+      "country": "Singapore",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "MXP",
+      "airport": "Milan",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "9V-SJI",
+    "route": "SIN-MXP",
+    "distanceKm": 10300,
+    "flightTimeHours": 12.875
+  },
+  {
+    "date": "2025-07-05",
+    "airline": "Finnair",
+    "flightNumber": "AY1778",
+    "departure": {
+      "iata": "LIN",
+      "airport": "Milan",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321-200",
+    "registration": "OH-LZS",
+    "route": "LIN-HEL",
+    "distanceKm": 1900,
+    "flightTimeHours": 2.375
+  },
+  {
+    "date": "2025-07-13",
+    "airline": "SAS",
+    "flightNumber": "SK709",
+    "departure": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "ARN",
+      "airport": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe"
+    },
+    "aircraft": "Bombardier CRJ900",
+    "registration": "EI-FPW",
+    "route": "HEL-ARN",
+    "distanceKm": 400,
+    "flightTimeHours": 0.5
+  },
+  {
+    "date": "2025-08-13",
+    "airline": "Ryanair",
+    "flightNumber": "FR4623",
+    "departure": {
+      "iata": "TLL",
+      "airport": "Tallinn",
+      "country": "Estonia",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "ARN",
+      "airport": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "9H-QAR",
+    "route": "TLL-ARN",
+    "distanceKm": 380,
+    "flightTimeHours": 0.475
+  },
+  {
+    "date": "2025-08-18",
+    "airline": "Norwegian Air",
+    "flightNumber": "D82615",
+    "departure": {
+      "iata": "ARN",
+      "airport": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737 MAX 8",
+    "registration": "SE-RTD",
+    "route": "ARN-HEL",
+    "distanceKm": 400,
+    "flightTimeHours": 0.5
+  },
+  {
+    "date": "2025-08-25",
+    "airline": "Ryanair",
+    "flightNumber": "FR9327",
+    "departure": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "CRL",
+      "airport": "Brussels",
+      "country": "Belgium",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "EI-EMC",
+    "route": "HEL-CRL",
+    "distanceKm": 1600,
+    "flightTimeHours": 2
+  },
+  {
+    "date": "2025-09-01",
+    "airline": "Ryanair",
+    "flightNumber": "FR9328",
+    "departure": {
+      "iata": "CRL",
+      "airport": "Brussels",
+      "country": "Belgium",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "EI-EVA",
+    "route": "CRL-HEL",
+    "distanceKm": 1600,
+    "flightTimeHours": 2
+  },
+  {
+    "date": "2025-09-25",
+    "airline": "Swiss Air",
+    "flightNumber": "LX1101",
+    "departure": {
+      "iata": "MUC",
+      "airport": "Munich",
+      "country": "Germany",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "ZRH",
+      "airport": "Zurich",
+      "country": "Switzerland",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "HB-IJM",
+    "route": "MUC-ZRH",
+    "distanceKm": 260,
+    "flightTimeHours": 0.325
+  },
+  {
+    "date": "2025-09-25",
+    "airline": "Lufthansa",
+    "flightNumber": "LH2467",
+    "departure": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "MUC",
+      "airport": "Munich",
+      "country": "Germany",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A220-300",
+    "registration": "YL-ABT",
+    "route": "HEL-MUC",
+    "distanceKm": 1500,
+    "flightTimeHours": 1.875
+  },
+  {
+    "date": "2025-12-05",
+    "airline": "Finnair",
+    "flightNumber": "AY1337",
+    "departure": {
+      "iata": "HEL",
+      "airport": "Helsinki",
+      "country": "Finland",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "LHR",
+      "airport": "London",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321-200",
+    "registration": "OH-LZO",
+    "route": "HEL-LHR",
+    "distanceKm": 1800,
+    "flightTimeHours": 2.25
+  },
+  {
+    "date": "2025-12-05",
+    "airline": "Malaysia Airlines",
+    "flightNumber": "MH001",
+    "departure": {
+      "iata": "LHR",
+      "airport": "London",
+      "country": "UK",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "KUL",
+      "airport": "Kuala Lumpur",
+      "country": "Malaysia",
+      "continent": "Asia"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "9M-MAG",
+    "route": "LHR-KUL",
+    "distanceKm": 10500,
+    "flightTimeHours": 13.125
+  },
+  {
+    "date": "2025-12-06",
+    "airline": "Malaysia Airlines",
+    "flightNumber": "MH145",
+    "departure": {
+      "iata": "KUL",
+      "airport": "Kuala Lumpur",
+      "country": "Malaysia",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A330-900",
+    "registration": "9M-MNK",
+    "route": "KUL-AKL",
+    "distanceKm": 8700,
+    "flightTimeHours": 10.875
+  },
+  {
+    "date": "2025-12-16",
+    "airline": "Jetstar",
+    "flightNumber": "JQ237",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VGI",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2026-03-06",
+    "airline": "Jetstar",
+    "flightNumber": "JQ238",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VQK",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2026-03-08",
+    "airline": "Jetstar",
+    "flightNumber": "JQ247",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFX",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2026-03-27",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ384",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "ZK-OXA",
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2026-04-06",
+    "airline": "Jetstar",
+    "flightNumber": "JQ291",
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFT",
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2026-06-19",
+    "airline": "Jetstar",
+    "flightNumber": "JQ240",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VQL",
+    "route": "CHC-AKL",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2026-06-20",
+    "airline": "China Eastern",
+    "flightNumber": "MU746",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "PVG",
+      "airport": "Shanghai",
+      "country": "China",
+      "continent": "Asia"
+    },
+    "aircraft": "Boeing 777-300ER",
+    "registration": "B-7882",
+    "route": "AKL-PVG",
+    "distanceKm": 9300,
+    "flightTimeHours": 11.625
+  },
+  {
+    "date": "2026-06-21",
+    "airline": "China Eastern",
+    "flightNumber": "MU243",
+    "departure": {
+      "iata": "PVG",
+      "airport": "Shanghai",
+      "country": "China",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "MXP",
+      "airport": "Milan",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A350-900",
+    "registration": "B-30CW",
+    "route": "PVG-MXP",
+    "distanceKm": 9100,
+    "flightTimeHours": 11.375
+  },
+  {
+    "date": "2026-06-29",
+    "airline": "Wizz Air",
+    "flightNumber": "W45084",
+    "departure": {
+      "iata": "GOA",
+      "airport": "Genoa",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "TIA",
+      "airport": "Tirana",
+      "country": "Albania",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321",
+    "registration": "HA-LXV",
+    "route": "GOA-TIA",
+    "distanceKm": 900,
+    "flightTimeHours": 1.125
+  },
+  {
+    "date": "2026-07-04",
+    "airline": "Wizz Air",
+    "flightNumber": "W45083",
+    "departure": {
+      "iata": "TIA",
+      "airport": "Tirana",
+      "country": "Albania",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "GOA",
+      "airport": "Genoa",
+      "country": "Italy",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321",
+    "registration": "HA-LTM",
+    "route": "TIA-GOA",
+    "distanceKm": 900,
+    "flightTimeHours": 1.125
+  },
+  {
+    "date": "2026-07-18",
+    "airline": "Vueling",
+    "flightNumber": "VY1221",
+    "departure": {
+      "iata": "LYS",
+      "airport": "Lyon",
+      "country": "France",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "BCN",
+      "airport": "Barcelona",
+      "country": "Spain",
+      "continent": "Europe"
+    },
+    "aircraft": "Airbus A321",
+    "registration": "EC-MGY",
+    "route": "LYS-BCN",
+    "distanceKm": 530,
+    "flightTimeHours": 0.6625
+  },
+  {
+    "date": "2026-07-19",
+    "airline": "Ryanair",
+    "flightNumber": "FR4545",
+    "departure": {
+      "iata": "BCN",
+      "airport": "Barcelona",
+      "country": "Spain",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "OPO",
+      "airport": "Porto",
+      "country": "Portugal",
+      "continent": "Europe"
+    },
+    "aircraft": "Boeing 737-800",
+    "registration": "EI-DHH",
+    "route": "BCN-OPO",
+    "distanceKm": 900,
+    "flightTimeHours": 1.125
+  },
+  {
+    "date": "2026-08-03",
+    "airline": "Qatar Airways",
+    "flightNumber": "QR148",
+    "departure": {
+      "iata": "MAD",
+      "airport": "Madrid",
+      "country": "Spain",
+      "continent": "Europe"
+    },
+    "arrival": {
+      "iata": "DOH",
+      "airport": "Doha",
+      "country": "Qatar",
+      "continent": "Asia"
+    },
+    "aircraft": "Boeing 787-900",
+    "registration": "A7-BHT",
+    "route": "MAD-DOH",
+    "distanceKm": 5300,
+    "flightTimeHours": 6.625
+  },
+  {
+    "date": "2026-08-03",
+    "airline": "Qatar Airways",
+    "flightNumber": "QR914",
+    "departure": {
+      "iata": "DOH",
+      "airport": "Doha",
+      "country": "Qatar",
+      "continent": "Asia"
+    },
+    "arrival": {
+      "iata": "ADL",
+      "airport": "Adelaide",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "aircraft": "Boeing 777-300ER",
+    "registration": "A7-BEL",
+    "route": "DOH-ADL",
+    "distanceKm": 11300,
+    "flightTimeHours": 14.125
+  },
+  {
+    "date": "2026-08-04",
+    "airline": "Qatar Airways",
+    "flightNumber": "QR914",
+    "departure": {
+      "iata": "ADL",
+      "airport": "Adelaide",
+      "country": "Australia",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Boeing 777-300ER",
+    "registration": "A7-BEL",
+    "route": "ADL-AKL",
+    "distanceKm": 3200,
+    "flightTimeHours": 4
+  },
+  {
+    "date": "2026-08-05",
+    "airline": "Jetstar",
+    "flightNumber": "JQ239",
+    "departure": {
+      "iata": "AKL",
+      "airport": "Auckland",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320-200",
+    "registration": "VH-VFH",
+    "route": "AKL-CHC",
+    "distanceKm": 740,
+    "flightTimeHours": 0.925
+  },
+  {
+    "date": "2026-09-11",
+    "airline": "Air New Zealand",
+    "flightNumber": "NZ5342",
+    "departure": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "ATR 72-600",
+    "registration": "ZK-MZG",
+    "route": "CHC-WLG",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  },
+  {
+    "date": "2026-09-13",
+    "airline": "Jetstar",
+    "flightNumber": "JQ287",
+    "departure": {
+      "iata": "WLG",
+      "airport": "Wellington",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "arrival": {
+      "iata": "CHC",
+      "airport": "Christchurch",
+      "country": "New Zealand",
+      "continent": "Oceania"
+    },
+    "aircraft": "Airbus A320",
+    "registration": "VH-VGD",
+    "route": "WLG-CHC",
+    "distanceKm": 300,
+    "flightTimeHours": 0.375
+  }
+]
