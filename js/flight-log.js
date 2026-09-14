@@ -130,6 +130,27 @@ function displayFlights(flights) {
     });
 }
 
+function formatFlightTime(hours) {
+    if (!hours) {
+        return "Unknown";
+    }
+
+    const totalMinutes = Math.round(hours * 60);
+
+    const hrs = Math.floor(totalMinutes / 60);
+    const mins = totalMinutes % 60;
+
+    if (hrs === 0) {
+        return `${mins} min`;
+    }
+
+    if (mins === 0) {
+        return `${hrs} hr`;
+    }
+
+    return `${hrs} hr ${mins} min`;
+}
+
 function populateAirlineFilter(flights) {
     const airlineFilter = document.getElementById("airline-filter");
 
