@@ -1,3 +1,5 @@
+const airportLabels = [];
+
 const map = L.map("flight-map", {
     worldCopyJump: true,
     minZoom: 2
@@ -28,9 +30,20 @@ async function loadFlightMap() {
 
         const routeStats = calculateRouteStats(flights);
 
+        document.getElementById("map-flight-count").textContent =
+        flights.length;
+
+        document.getElementById("map-airport-count").textContent =
+        Object.keys(airportStats).length;
+
+        document.getElementById("map-route-count").textContent =
+        Object.keys(routeStats).length;
+
         drawRoutes(routeStats, airports);
 
         drawAirports(airportStats, airports);
+
+        updateAirportLabels();
 
     } catch (error) {
 
@@ -163,6 +176,7 @@ function drawAirports(stats, airports) {
         );
 
         marker.addTo(map);
+       
         const label = L.marker(
     [airport.latitude, airport.longitude],
     {
@@ -175,11 +189,102 @@ function drawAirports(stats, airports) {
     }
 );
 
-label.addTo(map);
-
-    });
+airportLabels.push({
+    marker: label,
+    iata: iata,
+    flights: stat.flights
+});
 }
 
+function updateAirportLabels() {
+
+    const zoom = map.getZoom();
+
+    airportLabels.forEach(labelData => {
+
+        const marker = labelData.marker;
+        const flights = labelData.flights;
+
+        let shouldShow = false;
+
+        if (zoom <= 2) {
+            shouldShow = flights >= 8;
+        }
+
+        else if (zoom === 3) {
+            shouldShow = flights >= 4;
+        }
+
+        else if (zoom === 4) {
+            shouldShow = flights >= 2;
+        }
+
+        else {
+            shouldShow = true;
+        }
+
+        if (shouldShow) {
+
+            if (!map.hasLayer(marker)) {
+                marker.addTo(map);
+            }
+
+        } else {
+
+            if (map.hasLayer(marker)) {
+                map.removeLayer(marker);
+            }
+
+        }
+
+    });
+
+}
+
+function updateAirportLabels() {
+
+    const zoom = map.getZoom();
+
+    airportLabels.forEach(labelData => {
+
+        const marker = labelData.marker;
+        const flights = labelData.flights;
+
+        let shouldShow = false;
+
+        if (zoom <= 2) {
+            shouldShow = flights >= 8;
+        }
+
+        else if (zoom === 3) {
+            shouldShow = flights >= 4;
+        }
+
+        else if (zoom === 4) {
+            shouldShow = flights >= 2;
+        }
+
+        else {
+            shouldShow = true;
+        }
+
+        if (shouldShow) {
+
+            if (!map.hasLayer(marker)) {
+                marker.addTo(map);
+            }
+
+        } else {
+
+            if (map.hasLayer(marker)) {
+                map.removeLayer(marker);
+            }
+
+        }
+
+    });
+
+}
 
 function drawRoutes(routes, airports) {
 
@@ -327,5 +432,6 @@ function toDegrees(radians) {
     return radians * 180 / Math.PI;
 }
 
+map.on("zoomend", updateAirportLabels);
 
 loadFlightMap();
