@@ -350,16 +350,20 @@ footer {
 .airport-label {
     background: transparent;
     border: none;
-    color: white;
+    color: #111;
 
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.5px;
 
     text-shadow:
-        0 1px 3px black,
-        0 0 3px black;
+        0 1px 2px white,
+        0 0 3px white;
 
     transform: translate(7px, -5px);
     pointer-events: none;
+}
+
+.leaflet-interactive:focus {
+    outline: none;
 }
