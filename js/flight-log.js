@@ -34,7 +34,9 @@ function displayFlights(flights) {
     tableBody.innerHTML = "";
 
     flights.forEach(flight => {
+
         const row = document.createElement("tr");
+        row.classList.add("flight-row");
 
         row.innerHTML = `
             <td>${formatDate(flight.date)}</td>
@@ -62,7 +64,69 @@ function displayFlights(flights) {
             </td>
         `;
 
+        const detailsRow = document.createElement("tr");
+        detailsRow.classList.add("flight-details-row");
+
+        detailsRow.innerHTML = `
+            <td colspan="6">
+                <div class="flight-details">
+
+                    <div>
+                        <span class="detail-label">From</span>
+                        <strong>
+                            ${flight.departure.airport || flight.departure.iata}
+                            (${flight.departure.iata})
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="detail-label">To</span>
+                        <strong>
+                            ${flight.arrival.airport || flight.arrival.iata}
+                            (${flight.arrival.iata})
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="detail-label">Aircraft</span>
+                        <strong>
+                            ${flight.aircraft || "Unknown"}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="detail-label">Registration</span>
+                        <strong>
+                            ${flight.registration || "Unknown"}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="detail-label">Distance</span>
+                        <strong>
+                            ${flight.distanceKm
+                                ? flight.distanceKm.toLocaleString() + " km"
+                                : "Unknown"}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="detail-label">Estimated flight time</span>
+                        <strong>
+                            ${formatFlightTime(flight.flightTimeHours)}
+                        </strong>
+                    </div>
+
+                </div>
+            </td>
+        `;
+
+        row.addEventListener("click", () => {
+            detailsRow.classList.toggle("open");
+        });
+
         tableBody.appendChild(row);
+        tableBody.appendChild(detailsRow);
     });
 }
 

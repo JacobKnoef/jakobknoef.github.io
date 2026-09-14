@@ -277,3 +277,60 @@ footer {
     }
 
 }
+
+.flight-row {
+    cursor: pointer;
+}
+
+.flight-row:hover {
+    background: #111821;
+}
+
+.flight-details-row {
+    display: none;
+}
+
+.flight-details-row.open {
+    display: table-row;
+}
+
+.flight-details-row td {
+    padding: 0;
+    background: #0e141c;
+}
+
+.flight-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    padding: 28px 30px 32px;
+    border-bottom: 1px solid #252c36;
+}
+
+.flight-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #657182;
+}
+
+.flight-details strong {
+    font-size: 14px;
+    font-weight: 500;
+    color: #d9e0e8;
+}
+
+@media (max-width: 700px) {
+
+    .flight-details {
+        grid-template-columns: 1fr;
+    }
+
+}
