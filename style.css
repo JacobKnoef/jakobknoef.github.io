@@ -473,3 +473,33 @@ footer {
     }
 
 }
+
+
+.map-filters {
+    display: grid;
+    grid-template-columns: 160px 220px 220px;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.map-filters select {
+    width: 100%;
+
+    background: #111821;
+    color: white;
+
+    border: 1px solid #252c36;
+    border-radius: 10px;
+
+    padding: 13px 14px;
+
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+
+    .map-filters {
+        grid-template-columns: 1fr;
+    }
+
+}

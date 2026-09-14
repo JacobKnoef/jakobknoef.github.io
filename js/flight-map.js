@@ -1,4 +1,9 @@
-const airportLabels = [];
+let allFlights = [];
+let airports = {};
+
+let routeLayers = [];
+let airportLayers = [];
+let airportLabels = [];
 
 const map = L.map("flight-map", {
     worldCopyJump: true,
@@ -22,31 +27,187 @@ async function loadFlightMap() {
             fetch("data/airports.json")
         ]);
 
-        const flights = await flightResponse.json();
-        const airports = await airportResponse.json();
+        allFlights = await flightResponse.json();
+        airports = await airportResponse.json();
 
-        const airportStats = calculateAirportStats(flights);
-        const routeStats = calculateRouteStats(flights);
+        populateMapFilters(allFlights);
 
-        document.getElementById("map-flight-count").textContent =
-            flights.length;
-
-        document.getElementById("map-airport-count").textContent =
-            Object.keys(airportStats).length;
-
-        document.getElementById("map-route-count").textContent =
-            Object.keys(routeStats).length;
-
-        drawRoutes(routeStats, airports);
-        drawAirports(airportStats, airports);
-
-        updateAirportLabels();
+        redrawMap(allFlights);
 
     } catch (error) {
 
         console.error("Flight map could not be loaded:", error);
 
     }
+}
+
+
+function populateMapFilters(flights) {
+
+    const yearFilter =
+        document.getElementById("map-year-filter");
+
+    const airlineFilter =
+        document.getElementById("map-airline-filter");
+
+    const aircraftFilter =
+        document.getElementById("map-aircraft-filter");
+
+
+    const years = [...new Set(
+        flights
+            .map(flight => new Date(flight.date).getFullYear())
+            .filter(Boolean)
+    )].sort((a, b) => b - a);
+
+
+    const airlines = [...new Set(
+        flights
+            .map(flight => flight.airline)
+            .filter(Boolean)
+    )].sort();
+
+
+    const aircraft = [...new Set(
+        flights
+            .map(flight => flight.aircraft)
+            .filter(Boolean)
+    )].sort();
+
+
+    years.forEach(year => {
+
+        const option = document.createElement("option");
+
+        option.value = year;
+        option.textContent = year;
+
+        yearFilter.appendChild(option);
+
+    });
+
+
+    airlines.forEach(airline => {
+
+        const option = document.createElement("option");
+
+        option.value = airline;
+        option.textContent = airline;
+
+        airlineFilter.appendChild(option);
+
+    });
+
+
+    aircraft.forEach(type => {
+
+        const option = document.createElement("option");
+
+        option.value = type;
+        option.textContent = type;
+
+        aircraftFilter.appendChild(option);
+
+    });
+
+}
+
+
+function filterMapFlights() {
+
+    const yearValue =
+        document.getElementById("map-year-filter").value;
+
+    const airlineValue =
+        document.getElementById("map-airline-filter").value;
+
+    const aircraftValue =
+        document.getElementById("map-aircraft-filter").value;
+
+
+    const filteredFlights = allFlights.filter(flight => {
+
+        const flightYear =
+            new Date(flight.date).getFullYear().toString();
+
+        const matchesYear =
+            yearValue === "all" ||
+            flightYear === yearValue;
+
+        const matchesAirline =
+            airlineValue === "all" ||
+            flight.airline === airlineValue;
+
+        const matchesAircraft =
+            aircraftValue === "all" ||
+            flight.aircraft === aircraftValue;
+
+        return (
+            matchesYear &&
+            matchesAirline &&
+            matchesAircraft
+        );
+
+    });
+
+
+    redrawMap(filteredFlights);
+
+}
+
+
+function redrawMap(flights) {
+
+    clearMapLayers();
+
+    const airportStats =
+        calculateAirportStats(flights);
+
+    const routeStats =
+        calculateRouteStats(flights);
+
+
+    document.getElementById("map-flight-count").textContent =
+        flights.length;
+
+    document.getElementById("map-airport-count").textContent =
+        Object.keys(airportStats).length;
+
+    document.getElementById("map-route-count").textContent =
+        Object.keys(routeStats).length;
+
+
+    drawRoutes(routeStats);
+
+    drawAirports(airportStats);
+
+    updateAirportLabels();
+
+}
+
+
+function clearMapLayers() {
+
+    routeLayers.forEach(layer => {
+        map.removeLayer(layer);
+    });
+
+    airportLayers.forEach(layer => {
+        map.removeLayer(layer);
+    });
+
+    airportLabels.forEach(labelData => {
+
+        if (map.hasLayer(labelData.marker)) {
+            map.removeLayer(labelData.marker);
+        }
+
+    });
+
+    routeLayers = [];
+    airportLayers = [];
+    airportLabels = [];
+
 }
 
 
@@ -84,6 +245,7 @@ function calculateAirportStats(flights) {
     });
 
     return stats;
+
 }
 
 
@@ -96,14 +258,17 @@ function calculateRouteStats(flights) {
         const a = flight.departure.iata;
         const b = flight.arrival.iata;
 
-        const routeKey = [a, b].sort().join("-");
+        const routeKey =
+            [a, b].sort().join("-");
 
         if (!routes[routeKey]) {
+
             routes[routeKey] = {
                 airportA: a,
                 airportB: b,
                 flights: 0
             };
+
         }
 
         routes[routeKey].flights++;
@@ -111,10 +276,11 @@ function calculateRouteStats(flights) {
     });
 
     return routes;
+
 }
 
 
-function drawAirports(stats, airports) {
+function drawAirports(stats) {
 
     Object.entries(stats).forEach(([iata, stat]) => {
 
@@ -139,6 +305,7 @@ function drawAirports(stats, airports) {
             }
         );
 
+
         marker.bindTooltip(
             `
             <strong>${iata}</strong><br>
@@ -149,6 +316,7 @@ function drawAirports(stats, airports) {
                 direction: "top"
             }
         );
+
 
         marker.bindPopup(
             `
@@ -170,7 +338,11 @@ function drawAirports(stats, airports) {
             `
         );
 
+
         marker.addTo(map);
+
+        airportLayers.push(marker);
+
 
         const label = L.marker(
             [airport.latitude, airport.longitude],
@@ -184,9 +356,9 @@ function drawAirports(stats, airports) {
             }
         );
 
+
         airportLabels.push({
             marker: label,
-            iata: iata,
             flights: stat.flights
         });
 
@@ -222,6 +394,7 @@ function updateAirportLabels() {
             shouldShow = true;
         }
 
+
         if (shouldShow) {
 
             if (!map.hasLayer(marker)) {
@@ -241,27 +414,33 @@ function updateAirportLabels() {
 }
 
 
-function drawRoutes(routes, airports) {
+function drawRoutes(routes) {
 
     Object.values(routes).forEach(route => {
 
-        const airportA = airports[route.airportA];
-        const airportB = airports[route.airportB];
+        const airportA =
+            airports[route.airportA];
+
+        const airportB =
+            airports[route.airportB];
 
         if (!airportA || !airportB) {
             return;
         }
+
 
         const weight = Math.min(
             1 + Math.sqrt(route.flights) * 1.2,
             8
         );
 
+
         const line = createGreatCircleRoute(
             airportA,
             airportB,
             weight
         );
+
 
         line.bindTooltip(
             `
@@ -270,57 +449,90 @@ function drawRoutes(routes, airports) {
             `
         );
 
+
         line.addTo(map);
+
+        routeLayers.push(line);
 
     });
 
 }
 
 
-function createGreatCircleRoute(startAirport, endAirport, weight) {
+function createGreatCircleRoute(
+    startAirport,
+    endAirport,
+    weight
+) {
 
     const points = [];
 
-    const lat1 = toRadians(startAirport.latitude);
-    const lon1 = toRadians(startAirport.longitude);
+    const lat1 =
+        toRadians(startAirport.latitude);
 
-    const lat2 = toRadians(endAirport.latitude);
-    const lon2 = toRadians(endAirport.longitude);
+    const lon1 =
+        toRadians(startAirport.longitude);
+
+    const lat2 =
+        toRadians(endAirport.latitude);
+
+    const lon2 =
+        toRadians(endAirport.longitude);
+
 
     const distance = 2 * Math.asin(
         Math.sqrt(
-            Math.pow(Math.sin((lat2 - lat1) / 2), 2) +
+            Math.pow(
+                Math.sin((lat2 - lat1) / 2),
+                2
+            ) +
             Math.cos(lat1) *
             Math.cos(lat2) *
-            Math.pow(Math.sin((lon2 - lon1) / 2), 2)
+            Math.pow(
+                Math.sin((lon2 - lon1) / 2),
+                2
+            )
         )
     );
 
+
     const segments = 100;
+
 
     for (let i = 0; i <= segments; i++) {
 
-        const fraction = i / segments;
+        const fraction =
+            i / segments;
+
 
         const A =
-            Math.sin((1 - fraction) * distance) /
+            Math.sin(
+                (1 - fraction) * distance
+            ) /
             Math.sin(distance);
 
+
         const B =
-            Math.sin(fraction * distance) /
+            Math.sin(
+                fraction * distance
+            ) /
             Math.sin(distance);
+
 
         const x =
             A * Math.cos(lat1) * Math.cos(lon1) +
             B * Math.cos(lat2) * Math.cos(lon2);
 
+
         const y =
             A * Math.cos(lat1) * Math.sin(lon1) +
             B * Math.cos(lat2) * Math.sin(lon2);
 
+
         const z =
             A * Math.sin(lat1) +
             B * Math.sin(lat2);
+
 
         const lat =
             Math.atan2(
@@ -328,8 +540,10 @@ function createGreatCircleRoute(startAirport, endAirport, weight) {
                 Math.sqrt(x * x + y * y)
             );
 
+
         const lon =
             Math.atan2(y, x);
+
 
         points.push([
             toDegrees(lat),
@@ -338,31 +552,50 @@ function createGreatCircleRoute(startAirport, endAirport, weight) {
 
     }
 
+
     const routeSections = [];
 
-    let currentSection = [points[0]];
+    let currentSection =
+        [points[0]];
+
 
     for (let i = 1; i < points.length; i++) {
 
-        const previous = points[i - 1];
-        const current = points[i];
+        const previous =
+            points[i - 1];
+
+        const current =
+            points[i];
+
 
         if (
-            Math.abs(current[1] - previous[1]) > 180
+            Math.abs(
+                current[1] - previous[1]
+            ) > 180
         ) {
 
-            routeSections.push(currentSection);
-            currentSection = [current];
+            routeSections.push(
+                currentSection
+            );
+
+            currentSection =
+                [current];
 
         } else {
 
-            currentSection.push(current);
+            currentSection.push(
+                current
+            );
 
         }
 
     }
 
-    routeSections.push(currentSection);
+
+    routeSections.push(
+        currentSection
+    );
+
 
     return L.polyline(
         routeSections,
@@ -386,6 +619,34 @@ function toDegrees(radians) {
 }
 
 
-map.on("zoomend", updateAirportLabels);
+document
+    .getElementById("map-year-filter")
+    .addEventListener(
+        "change",
+        filterMapFlights
+    );
+
+
+document
+    .getElementById("map-airline-filter")
+    .addEventListener(
+        "change",
+        filterMapFlights
+    );
+
+
+document
+    .getElementById("map-aircraft-filter")
+    .addEventListener(
+        "change",
+        filterMapFlights
+    );
+
+
+map.on(
+    "zoomend",
+    updateAirportLabels
+);
+
 
 loadFlightMap();
