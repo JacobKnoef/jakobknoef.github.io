@@ -5,8 +5,6 @@ const map = L.map("flight-map", {
     minZoom: 2
 }).setView([10, 20], 2);
 
-
-// Base map
 L.tileLayer(
     "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
@@ -14,6 +12,7 @@ L.tileLayer(
         maxZoom: 19
     }
 ).addTo(map);
+
 
 async function loadFlightMap() {
     try {
@@ -27,20 +26,18 @@ async function loadFlightMap() {
         const airports = await airportResponse.json();
 
         const airportStats = calculateAirportStats(flights);
-
         const routeStats = calculateRouteStats(flights);
 
         document.getElementById("map-flight-count").textContent =
-        flights.length;
+            flights.length;
 
         document.getElementById("map-airport-count").textContent =
-        Object.keys(airportStats).length;
+            Object.keys(airportStats).length;
 
         document.getElementById("map-route-count").textContent =
-        Object.keys(routeStats).length;
+            Object.keys(routeStats).length;
 
         drawRoutes(routeStats, airports);
-
         drawAirports(airportStats, airports);
 
         updateAirportLabels();
@@ -99,17 +96,14 @@ function calculateRouteStats(flights) {
         const a = flight.departure.iata;
         const b = flight.arrival.iata;
 
-        // Treat CHC → AKL and AKL → CHC as the same route
         const routeKey = [a, b].sort().join("-");
 
         if (!routes[routeKey]) {
-
             routes[routeKey] = {
                 airportA: a,
                 airportB: b,
                 flights: 0
             };
-
         }
 
         routes[routeKey].flights++;
@@ -132,9 +126,10 @@ function drawAirports(stats, airports) {
         }
 
         const radius = Math.min(
-        3 + Math.sqrt(stat.flights) * 0.8,
-        9
-);
+            3 + Math.sqrt(stat.flights) * 0.8,
+            9
+        );
+
         const marker = L.circleMarker(
             [airport.latitude, airport.longitude],
             {
@@ -176,25 +171,29 @@ function drawAirports(stats, airports) {
         );
 
         marker.addTo(map);
-       
+
         const label = L.marker(
-    [airport.latitude, airport.longitude],
-    {
-        interactive: false,
-        icon: L.divIcon({
-            className: "airport-label",
-            html: iata,
-            iconSize: null
-        })
-    }
-);
+            [airport.latitude, airport.longitude],
+            {
+                interactive: false,
+                icon: L.divIcon({
+                    className: "airport-label",
+                    html: iata,
+                    iconSize: null
+                })
+            }
+        );
 
-airportLabels.push({
-    marker: label,
-    iata: iata,
-    flights: stat.flights
-});
+        airportLabels.push({
+            marker: label,
+            iata: iata,
+            flights: stat.flights
+        });
+
+    });
+
 }
+
 
 function updateAirportLabels() {
 
@@ -241,50 +240,6 @@ function updateAirportLabels() {
 
 }
 
-function updateAirportLabels() {
-
-    const zoom = map.getZoom();
-
-    airportLabels.forEach(labelData => {
-
-        const marker = labelData.marker;
-        const flights = labelData.flights;
-
-        let shouldShow = false;
-
-        if (zoom <= 2) {
-            shouldShow = flights >= 8;
-        }
-
-        else if (zoom === 3) {
-            shouldShow = flights >= 4;
-        }
-
-        else if (zoom === 4) {
-            shouldShow = flights >= 2;
-        }
-
-        else {
-            shouldShow = true;
-        }
-
-        if (shouldShow) {
-
-            if (!map.hasLayer(marker)) {
-                marker.addTo(map);
-            }
-
-        } else {
-
-            if (map.hasLayer(marker)) {
-                map.removeLayer(marker);
-            }
-
-        }
-
-    });
-
-}
 
 function drawRoutes(routes, airports) {
 
@@ -318,6 +273,7 @@ function drawRoutes(routes, airports) {
         line.addTo(map);
 
     });
+
 }
 
 
@@ -379,11 +335,8 @@ function createGreatCircleRoute(startAirport, endAirport, weight) {
             toDegrees(lat),
             toDegrees(lon)
         ]);
+
     }
-
-
-    // Prevent ugly lines crossing the entire world
-    // when the route crosses the International Date Line.
 
     const routeSections = [];
 
@@ -411,7 +364,6 @@ function createGreatCircleRoute(startAirport, endAirport, weight) {
 
     routeSections.push(currentSection);
 
-
     return L.polyline(
         routeSections,
         {
@@ -420,6 +372,7 @@ function createGreatCircleRoute(startAirport, endAirport, weight) {
             smoothFactor: 1
         }
     );
+
 }
 
 
@@ -431,6 +384,7 @@ function toRadians(degrees) {
 function toDegrees(radians) {
     return radians * 180 / Math.PI;
 }
+
 
 map.on("zoomend", updateAirportLabels);
 
