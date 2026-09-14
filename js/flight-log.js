@@ -10,8 +10,15 @@ async function loadFlightLog() {
 
         allFlights = await response.json();
 
-        populateAirlineFilter(allFlights);
-        displayFlights(allFlights);
+    allFlights.sort((a, b) => {
+     return new Date(b.date) - new Date(a.date);
+});
+
+    populateYearFilter(allFlights);
+    populateAirlineFilter(allFlights);
+    populateAircraftFilter(allFlights);
+
+    displayFlights(allFlights);
 
         document.getElementById("flight-count").textContent =
             `${allFlights.length} flights`;
@@ -78,6 +85,45 @@ function populateAirlineFilter(flights) {
     });
 }
 
+function populateYearFilter(flights) {
+    const yearFilter = document.getElementById("year-filter");
+
+    const years = [...new Set(
+        flights
+            .map(flight => new Date(flight.date).getFullYear())
+            .filter(Boolean)
+    )].sort((a, b) => b - a);
+
+    years.forEach(year => {
+        const option = document.createElement("option");
+
+        option.value = year;
+        option.textContent = year;
+
+        yearFilter.appendChild(option);
+    });
+}
+
+
+function populateAircraftFilter(flights) {
+    const aircraftFilter = document.getElementById("aircraft-filter");
+
+    const aircraft = [...new Set(
+        flights
+            .map(flight => flight.aircraft)
+            .filter(Boolean)
+    )].sort();
+
+    aircraft.forEach(type => {
+        const option = document.createElement("option");
+
+        option.value = type;
+        option.textContent = type;
+
+        aircraftFilter.appendChild(option);
+    });
+}
+
 function formatDate(dateString) {
     const date = new Date(dateString);
 
@@ -92,8 +138,14 @@ function filterFlights() {
     const searchValue =
         document.getElementById("flight-search").value.toLowerCase();
 
+    const yearValue =
+        document.getElementById("year-filter").value;
+
     const airlineValue =
         document.getElementById("airline-filter").value;
+
+    const aircraftValue =
+        document.getElementById("aircraft-filter").value;
 
     const filteredFlights = allFlights.filter(flight => {
 
@@ -111,11 +163,27 @@ function filterFlights() {
         const matchesSearch =
             searchableText.includes(searchValue);
 
+        const flightYear =
+            new Date(flight.date).getFullYear().toString();
+
+        const matchesYear =
+            yearValue === "all" ||
+            flightYear === yearValue;
+
         const matchesAirline =
             airlineValue === "all" ||
             flight.airline === airlineValue;
 
-        return matchesSearch && matchesAirline;
+        const matchesAircraft =
+            aircraftValue === "all" ||
+            flight.aircraft === aircraftValue;
+
+        return (
+            matchesSearch &&
+            matchesYear &&
+            matchesAirline &&
+            matchesAircraft
+        );
     });
 
     displayFlights(filteredFlights);
@@ -131,5 +199,13 @@ document
 document
     .getElementById("airline-filter")
     .addEventListener("change", filterFlights);
+
+document
+    .getElementById("year-filter")
+    .addEventListener("change", filterFlights);
+
+document
+    .getElementById("aircraft-filter")
+    .addEventListener("change", filterFlights);    
 
 loadFlightLog();
