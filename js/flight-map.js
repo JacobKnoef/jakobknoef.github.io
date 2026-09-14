@@ -255,25 +255,89 @@ function calculateRouteStats(flights) {
 
     flights.forEach(flight => {
 
-        const a = flight.departure.iata;
-        const b = flight.arrival.iata;
+        const departure = flight.departure.iata;
+        const arrival = flight.arrival.iata;
 
-        const routeKey =
-            [a, b].sort().join("-");
+        // This means CHC → AKL and AKL → CHC
+        // are treated as one overall route.
+        const sortedAirports = [departure, arrival].sort();
+        const routeKey = sortedAirports.join("-");
 
         if (!routes[routeKey]) {
 
             routes[routeKey] = {
-                airportA: a,
-                airportB: b,
-                flights: 0
+                airportA: sortedAirports[0],
+                airportB: sortedAirports[1],
+
+                flights: 0,
+                totalDistanceKm: 0,
+
+                dates: [],
+                airlines: {},
+                aircraft: {},
+                directions: {}
             };
 
         }
 
-        routes[routeKey].flights++;
+        const route = routes[routeKey];
+
+        route.flights++;
+
+        if (flight.distanceKm) {
+            route.totalDistanceKm += flight.distanceKm;
+        }
+
+        if (flight.date) {
+            route.dates.push(flight.date);
+        }
+
+        if (flight.airline) {
+
+            if (!route.airlines[flight.airline]) {
+                route.airlines[flight.airline] = 0;
+            }
+
+            route.airlines[flight.airline]++;
+
+        }
+
+        if (flight.aircraft) {
+
+            if (!route.aircraft[flight.aircraft]) {
+                route.aircraft[flight.aircraft] = 0;
+            }
+
+            route.aircraft[flight.aircraft]++;
+
+        }
+
+        const direction =
+            `${departure} → ${arrival}`;
+
+        if (!route.directions[direction]) {
+            route.directions[direction] = 0;
+        }
+
+        route.directions[direction]++;
 
     });
+
+
+    Object.values(routes).forEach(route => {
+
+        route.dates.sort(
+            (a, b) => new Date(a) - new Date(b)
+        );
+
+        route.firstFlight =
+            route.dates[0];
+
+        route.lastFlight =
+            route.dates[route.dates.length - 1];
+
+    });
+
 
     return routes;
 
@@ -413,6 +477,43 @@ function updateAirportLabels() {
 
 }
 
+function formatMapDate(dateString) {
+
+    if (!dateString) {
+        return "Unknown";
+    }
+
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString(
+        "en-NZ",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+function makeBreakdownList(items) {
+
+    const sortedItems =
+        Object.entries(items)
+            .sort((a, b) => b[1] - a[1]);
+
+    if (sortedItems.length === 0) {
+        return "Unknown";
+    }
+
+    return sortedItems
+        .map(([name, count]) =>
+            `${name} <strong>${count}</strong>`
+        )
+        .join("<br>");
+
+}
 
 function drawRoutes(routes) {
 
@@ -442,11 +543,144 @@ function drawRoutes(routes) {
         );
 
 
+        // SHORT INFORMATION WHEN HOVERING
+
         line.bindTooltip(
             `
-            <strong>${route.airportA} ↔ ${route.airportB}</strong><br>
-            ${route.flights} flight${route.flights === 1 ? "" : "s"}
+            <div class="route-tooltip">
+
+                <strong>
+                    ${route.airportA} ↔ ${route.airportB}
+                </strong>
+
+                <br>
+
+                ${airportA.city} ↔ ${airportB.city}
+
+                <br><br>
+
+                ${route.flights}
+                flight${route.flights === 1 ? "" : "s"}
+
+                <br>
+
+                ${Math.round(route.totalDistanceKm).toLocaleString()}
+                km total
+
+            </div>
             `
+        );
+
+
+        // DETAILED INFORMATION WHEN CLICKED
+
+        line.bindPopup(
+            `
+            <div class="route-popup">
+
+                <div class="route-popup-heading">
+
+                    <strong>
+                        ${route.airportA}
+                        ↔
+                        ${route.airportB}
+                    </strong>
+
+                    <span>
+                        ${airportA.city}
+                        ↔
+                        ${airportB.city}
+                    </span>
+
+                </div>
+
+
+                <div class="route-popup-main-stat">
+
+                    <strong>
+                        ${route.flights}
+                    </strong>
+
+                    <span>
+                        flight${route.flights === 1 ? "" : "s"}
+                    </span>
+
+                </div>
+
+
+                <div class="route-popup-grid">
+
+                    <div>
+                        <span>FIRST FLOWN</span>
+
+                        <strong>
+                            ${formatMapDate(route.firstFlight)}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>MOST RECENT</span>
+
+                        <strong>
+                            ${formatMapDate(route.lastFlight)}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>TOTAL DISTANCE</span>
+
+                        <strong>
+                            ${Math.round(route.totalDistanceKm).toLocaleString()}
+                            km
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="route-popup-section">
+
+                    <span class="route-popup-label">
+                        DIRECTION
+                    </span>
+
+                    <div>
+                        ${makeBreakdownList(route.directions)}
+                    </div>
+
+                </div>
+
+
+                <div class="route-popup-section">
+
+                    <span class="route-popup-label">
+                        AIRLINES
+                    </span>
+
+                    <div>
+                        ${makeBreakdownList(route.airlines)}
+                    </div>
+
+                </div>
+
+
+                <div class="route-popup-section">
+
+                    <span class="route-popup-label">
+                        AIRCRAFT
+                    </span>
+
+                    <div>
+                        ${makeBreakdownList(route.aircraft)}
+                    </div>
+
+                </div>
+
+            </div>
+            `,
+            {
+                maxWidth: 340
+            }
         );
 
 
