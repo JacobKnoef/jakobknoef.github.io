@@ -6,10 +6,9 @@ const map = L.map("flight-map", {
 
 // Base map
 L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
-        attribution:
-            '&copy; OpenStreetMap contributors &copy; CARTO',
+        attribution: "&copy; OpenStreetMap contributors",
         maxZoom: 19
     }
 ).addTo(map);
@@ -120,10 +119,9 @@ function drawAirports(stats, airports) {
         }
 
         const radius = Math.min(
-            5 + Math.sqrt(stat.flights) * 1.7,
-            16
-        );
-
+        3 + Math.sqrt(stat.flights) * 0.8,
+        9
+);
         const marker = L.circleMarker(
             [airport.latitude, airport.longitude],
             {
@@ -165,6 +163,19 @@ function drawAirports(stats, airports) {
         );
 
         marker.addTo(map);
+        const label = L.marker(
+    [airport.latitude, airport.longitude],
+    {
+        interactive: false,
+        icon: L.divIcon({
+            className: "airport-label",
+            html: iata,
+            iconSize: null
+        })
+    }
+);
+
+label.addTo(map);
 
     });
 }

@@ -346,3 +346,20 @@ footer {
     border-radius: 16px;
     overflow: hidden;
 }
+
+.airport-label {
+    background: transparent;
+    border: none;
+    color: white;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 1px 3px black,
+        0 0 3px black;
+
+    transform: translate(7px, -5px);
+    pointer-events: none;
+}
