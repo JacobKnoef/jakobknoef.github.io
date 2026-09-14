@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0f14;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 6%;
+
+    border-bottom: 1px solid #252c36;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: #aeb8c4;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+main {
+    width: min(1200px, 88%);
+    margin: auto;
+}
+
+.hero {
+    padding: 120px 0 90px;
+    max-width: 850px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #7f91a5;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.intro {
+    font-size: 20px;
+    color: #aeb8c4;
+    max-width: 600px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+
+    margin-bottom: 120px;
+}
+
+.stat-card {
+    border: 1px solid #252c36;
+    border-radius: 12px;
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.stat-label {
+    color: #7f91a5;
+    font-size: 14px;
+}
+
+.map-preview {
+    margin-bottom: 120px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+}
+
+.map-placeholder {
+    height: 500px;
+
+    border: 1px solid #252c36;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #657182;
+
+    background: #111821;
+}
+
+footer {
+    border-top: 1px solid #252c36;
+
+    padding: 40px 6%;
+
+    color: #657182;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+}
