@@ -405,6 +405,12 @@ function drawAirports(stats) {
 
         marker.addTo(map);
 
+        marker.on("click", function () {
+
+        marker.openPopup();
+
+        });
+
         airportLayers.push({
         marker: marker,
         iata: iata,
@@ -768,25 +774,29 @@ function drawRoutes(routes) {
 
         line.on("mouseover", function () {
 
-            // Close any tooltip that may already be open
-            routeLayers.forEach(routeData => {
-                routeData.layer.closeTooltip();
-            });
+    highlightRoute(line);
 
-            highlightRoute(line);
+    line.openTooltip();
 
-            line.openTooltip();
-
-        });
+});
 
 
-        line.on("mouseout", function () {
+line.on("mouseout", function () {
 
-            line.closeTooltip();
+    line.closeTooltip();
 
-            resetRouteHighlight();
+    resetRouteHighlight();
 
-        });
+});
+
+
+line.on("click", function () {
+
+    line.closeTooltip();
+
+    line.openPopup();
+
+});
 
         line.addTo(map);
 
