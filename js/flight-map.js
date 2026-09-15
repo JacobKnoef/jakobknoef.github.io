@@ -668,11 +668,15 @@ function drawRoutes(routes) {
                 permanent: false,
                 interactive: false,
                 direction: "top",
-                opacity: 0.95
+                opacity: 0.95,
                 offset: [0, -8]
             }
         );
 
+
+        line.bindPopup(
+            `
+            <div class="route-popup">
 
                 <div class="route-popup-main-stat">
 
@@ -764,25 +768,25 @@ function drawRoutes(routes) {
 
         line.on("mouseover", function () {
 
-    // Close any tooltip that may already be open
-    routeLayers.forEach(routeData => {
-        routeData.layer.closeTooltip();
-    });
+            // Close any tooltip that may already be open
+            routeLayers.forEach(routeData => {
+                routeData.layer.closeTooltip();
+            });
 
-    highlightRoute(line);
+            highlightRoute(line);
 
-    line.openTooltip();
+            line.openTooltip();
 
-});
+        });
 
 
-line.on("mouseout", function () {
+        line.on("mouseout", function () {
 
-    line.closeTooltip();
+            line.closeTooltip();
 
-    resetRouteHighlight();
+            resetRouteHighlight();
 
-});
+        });
 
         line.addTo(map);
 
