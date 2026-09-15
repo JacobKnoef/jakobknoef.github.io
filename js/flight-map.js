@@ -188,12 +188,12 @@ function redrawMap(flights) {
 
 function clearMapLayers() {
 
-    routeLayers.forEach(layer => {
-        map.removeLayer(layer);
+    routeLayers.forEach(routeData => {
+    map.removeLayer(routeData.layer);
     });
 
-    airportLayers.forEach(layer => {
-        map.removeLayer(layer);
+    airportLayers.forEach(airportData => {
+    map.removeLayer(airportData.marker);
     });
 
     airportLabels.forEach(labelData => {
@@ -405,7 +405,11 @@ function drawAirports(stats) {
 
         marker.addTo(map);
 
-        airportLayers.push(marker);
+        airportLayers.push({
+        marker: marker,
+        iata: iata,
+        normalRadius: radius
+        });
 
 
         const label = L.marker(
@@ -512,6 +516,96 @@ function makeBreakdownList(items) {
             `${name} <strong>${count}</strong>`
         )
         .join("<br>");
+
+}
+
+function highlightRoute(selectedRoute) {
+
+    let selectedAirports = [];
+
+    routeLayers.forEach(routeData => {
+
+        const line = routeData.layer;
+
+        if (line === selectedRoute) {
+
+            line.setStyle({
+                opacity: 1,
+                weight: routeData.normalWeight + 2
+            });
+
+            line.bringToFront();
+
+            selectedAirports = [
+                routeData.airportA,
+                routeData.airportB
+            ];
+
+        } else {
+
+            line.setStyle({
+                opacity: 0.1
+            });
+
+        }
+
+    });
+
+
+    airportLayers.forEach(airportData => {
+
+        if (
+            selectedAirports.includes(
+                airportData.iata
+            )
+        ) {
+
+            airportData.marker.setStyle({
+                fillOpacity: 1,
+                opacity: 1,
+                weight: 3,
+                radius:
+                    airportData.normalRadius + 2
+            });
+
+            airportData.marker.bringToFront();
+
+        } else {
+
+            airportData.marker.setStyle({
+                fillOpacity: 0.25,
+                opacity: 0.25
+            });
+
+        }
+
+    });
+
+}
+
+
+function resetRouteHighlight() {
+
+    routeLayers.forEach(routeData => {
+
+        routeData.layer.setStyle({
+            opacity: 0.55,
+            weight: routeData.normalWeight
+        });
+
+    });
+
+
+    airportLayers.forEach(airportData => {
+
+        airportData.marker.setStyle({
+            fillOpacity: 0.9,
+            opacity: 1,
+            weight: 2,
+            radius: airportData.normalRadius
+        });
+
+    });
 
 }
 
@@ -683,10 +777,22 @@ function drawRoutes(routes) {
             }
         );
 
+        line.on("mouseover", function () {
+    highlightRoute(line);
+});
+
+line.on("mouseout", function () {
+    resetRouteHighlight();
+});
 
         line.addTo(map);
 
-        routeLayers.push(line);
+    routeLayers.push({
+        layer: line,
+        airportA: route.airportA,
+        airportB: route.airportB,
+        normalWeight: weight
+});
 
     });
 
