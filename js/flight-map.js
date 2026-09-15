@@ -662,31 +662,16 @@ function drawRoutes(routes) {
                 km total
 
             </div>
-            `
+            `,
+            {
+                sticky: false,
+                permanent: false,
+                interactive: false,
+                direction: "top",
+                opacity: 0.95
+                offset: [0, -8]
+            }
         );
-
-
-        // DETAILED INFORMATION WHEN CLICKED
-
-        line.bindPopup(
-            `
-            <div class="route-popup">
-
-                <div class="route-popup-heading">
-
-                    <strong>
-                        ${route.airportA}
-                        ↔
-                        ${route.airportB}
-                    </strong>
-
-                    <span>
-                        ${airportA.city}
-                        ↔
-                        ${airportB.city}
-                    </span>
-
-                </div>
 
 
                 <div class="route-popup-main-stat">
@@ -778,11 +763,25 @@ function drawRoutes(routes) {
         );
 
         line.on("mouseover", function () {
+
+    // Close any tooltip that may already be open
+    routeLayers.forEach(routeData => {
+        routeData.layer.closeTooltip();
+    });
+
     highlightRoute(line);
+
+    line.openTooltip();
+
 });
 
+
 line.on("mouseout", function () {
+
+    line.closeTooltip();
+
     resetRouteHighlight();
+
 });
 
         line.addTo(map);
