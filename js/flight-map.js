@@ -613,22 +613,20 @@ function drawRoutes(routes) {
 
     Object.values(routes).forEach(route => {
 
-        const airportA =
-            airports[route.airportA];
-
-        const airportB =
-            airports[route.airportB];
+        const airportA = airports[route.airportA];
+        const airportB = airports[route.airportB];
 
         if (!airportA || !airportB) {
+            console.warn(
+                `Missing airport data for ${route.airportA} or ${route.airportB}`
+            );
             return;
         }
-
 
         const weight = Math.min(
             1 + Math.sqrt(route.flights) * 1.2,
             8
         );
-
 
         const line = createGreatCircleRoute(
             airportA,
@@ -636,31 +634,33 @@ function drawRoutes(routes) {
             weight
         );
 
-
-        // SHORT INFORMATION WHEN HOVERING
-
+        // Detailed information appears ONLY when the route is clicked.
         line.bindPopup(
             `
             <div class="route-popup">
 
-                <div class="route-popup-main-stat">
-
+                <div class="route-popup-heading">
                     <strong>
-                        ${route.flights}
+                        ${route.airportA} ↔ ${route.airportB}
                     </strong>
+
+                    <span>
+                        ${airportA.city} ↔ ${airportB.city}
+                    </span>
+                </div>
+
+                <div class="route-popup-main-stat">
+                    <strong>${route.flights}</strong>
 
                     <span>
                         flight${route.flights === 1 ? "" : "s"}
                     </span>
-
                 </div>
-
 
                 <div class="route-popup-grid">
 
                     <div>
                         <span>FIRST FLOWN</span>
-
                         <strong>
                             ${formatMapDate(route.firstFlight)}
                         </strong>
@@ -668,7 +668,6 @@ function drawRoutes(routes) {
 
                     <div>
                         <span>MOST RECENT</span>
-
                         <strong>
                             ${formatMapDate(route.lastFlight)}
                         </strong>
@@ -676,18 +675,16 @@ function drawRoutes(routes) {
 
                     <div>
                         <span>TOTAL DISTANCE</span>
-
                         <strong>
-                            ${Math.round(route.totalDistanceKm).toLocaleString()}
-                            km
+                            ${Math.round(
+                                route.totalDistanceKm
+                            ).toLocaleString()} km
                         </strong>
                     </div>
 
                 </div>
 
-
                 <div class="route-popup-section">
-
                     <span class="route-popup-label">
                         DIRECTION
                     </span>
@@ -695,12 +692,9 @@ function drawRoutes(routes) {
                     <div>
                         ${makeBreakdownList(route.directions)}
                     </div>
-
                 </div>
 
-
                 <div class="route-popup-section">
-
                     <span class="route-popup-label">
                         AIRLINES
                     </span>
@@ -708,12 +702,9 @@ function drawRoutes(routes) {
                     <div>
                         ${makeBreakdownList(route.airlines)}
                     </div>
-
                 </div>
 
-
                 <div class="route-popup-section">
-
                     <span class="route-popup-label">
                         AIRCRAFT
                     </span>
@@ -721,7 +712,6 @@ function drawRoutes(routes) {
                     <div>
                         ${makeBreakdownList(route.aircraft)}
                     </div>
-
                 </div>
 
             </div>
@@ -731,24 +721,28 @@ function drawRoutes(routes) {
             }
         );
 
-       line.on("mouseover", function () {
-            highlightRoute(line);
-            });
-
-        line.on("mouseout", function () {
-    resetRouteHighlight();
-            });
-
-    });
-
+        // IMPORTANT:
+        // Add the route to the map BEFORE setting up interaction.
         line.addTo(map);
 
-    routeLayers.push({
-        layer: line,
-        airportA: route.airportA,
-        airportB: route.airportB,
-        normalWeight: weight
-});
+        // Store the route so filters/highlighting can use it.
+        routeLayers.push({
+            layer: line,
+            airportA: route.airportA,
+            airportB: route.airportB,
+            normalWeight: weight
+        });
+
+        // Hover = visual highlight only.
+        line.on("mouseover", function () {
+            highlightRoute(line);
+        });
+
+        line.on("mouseout", function () {
+            resetRouteHighlight();
+        });
+
+    });
 
 }
 
