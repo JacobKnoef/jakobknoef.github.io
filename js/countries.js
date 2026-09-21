@@ -264,7 +264,7 @@ function getStatusText(
 
 
     if (statuses.length === 0) {
-        return "Not yet";
+        return "Nah not interested yet";
     }
 
 
@@ -272,6 +272,217 @@ function getStatusText(
 
 }
 
+
+// -----------------------------------------
+// COUNTRY DETAIL PANEL
+// -----------------------------------------
+
+function showCountryDetails(
+    countryName,
+    travelData
+) {
+
+    const status =
+        getCountryStatus(
+            countryName,
+            travelData
+        );
+
+
+    const emptyPanel =
+        document.getElementById(
+            "country-detail-empty"
+        );
+
+
+    const contentPanel =
+        document.getElementById(
+            "country-detail-content"
+        );
+
+
+    const nameElement =
+        document.getElementById(
+            "country-detail-name"
+        );
+
+
+    const badgeElement =
+        document.getElementById(
+            "country-detail-status"
+        );
+
+
+    const travelElement =
+        document.getElementById(
+            "country-detail-travel"
+        );
+
+
+    const flightElement =
+        document.getElementById(
+            "country-detail-flight"
+        );
+
+
+    const noteElement =
+        document.getElementById(
+            "country-detail-note"
+        );
+
+
+    // Show detail view
+
+    emptyPanel.style.display = "none";
+    contentPanel.style.display = "block";
+
+
+    // Country name
+
+    nameElement.textContent =
+        countryName;
+
+
+    // Remove previous badge styles
+
+    badgeElement.className =
+        "country-status-badge";
+
+
+    // -----------------------------------------
+    // VISITED
+    // -----------------------------------------
+
+    if (status.visited) {
+
+        badgeElement.textContent =
+            "VISITED";
+
+        badgeElement.classList.add(
+            "visited"
+        );
+
+        travelElement.textContent =
+            "Visited";
+
+        flightElement.textContent =
+            status.flown
+                ? "Flown through"
+                : "—";
+
+        noteElement.textContent =
+            "You've visited this country.";
+
+        return;
+
+    }
+
+
+    // -----------------------------------------
+    // WISHLIST + FLOWN THROUGH
+    // -----------------------------------------
+
+    if (
+        status.wishlist &&
+        status.flown
+    ) {
+
+        badgeElement.textContent =
+            "WISHLIST";
+
+        badgeElement.classList.add(
+            "wishlist"
+        );
+
+        travelElement.textContent =
+            "Wishlist";
+
+        flightElement.textContent =
+            "Flown through";
+
+        noteElement.textContent =
+            "You've passed through this country, but it is still on your wishlist.";
+
+        return;
+
+    }
+
+
+    // -----------------------------------------
+    // WISHLIST
+    // -----------------------------------------
+
+    if (status.wishlist) {
+
+        badgeElement.textContent =
+            "WISHLIST";
+
+        badgeElement.classList.add(
+            "wishlist"
+        );
+
+        travelElement.textContent =
+            "Wishlist";
+
+        flightElement.textContent =
+            "—";
+
+        noteElement.textContent =
+            "This country is on your travel wishlist.";
+
+        return;
+
+    }
+
+
+    // -----------------------------------------
+    // FLOWN THROUGH
+    // -----------------------------------------
+
+    if (status.flown) {
+
+        badgeElement.textContent =
+            "FLOWN THROUGH";
+
+        badgeElement.classList.add(
+            "flown"
+        );
+
+        travelElement.textContent =
+            "Not visited";
+
+        flightElement.textContent =
+            "Flown through";
+
+        noteElement.textContent =
+            "You've passed through this country, but haven't counted it as visited.";
+
+        return;
+
+    }
+
+
+    // -----------------------------------------
+    // NOT YET
+    // -----------------------------------------
+
+    badgeElement.textContent =
+        "NOT YET";
+
+    badgeElement.classList.add(
+        "none"
+    );
+
+    travelElement.textContent =
+        "Not visited";
+
+    flightElement.textContent =
+        "—";
+
+    noteElement.textContent =
+        "No travel history recorded for this country yet.";
+
+}
 
 // -----------------------------------------
 // DRAW COUNTRIES
@@ -362,10 +573,22 @@ function drawCountries(
                         }
                     );
 
+                    layer.on(
+                        "click",
+                        function () {
+
+                        showCountryDetails(
+                            countryName,
+                            travelData
+                        );
+
+                    }
+                );
+
                 }
 
         }
-    ).addTo(map);
+        ).addTo(map);
 
 }
 

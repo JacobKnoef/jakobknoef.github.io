@@ -716,3 +716,185 @@ footer {
 #country-map {
     background: #b9d9e8;
 }
+
+/* ================================
+   COUNTRY DETAIL PANEL
+================================ */
+
+.country-detail-panel {
+    margin-top: 20px;
+
+    background: #0d131a;
+    border: 1px solid #252c36;
+    border-radius: 16px;
+
+    padding: 28px 30px;
+
+    min-height: 150px;
+}
+
+
+.country-detail-eyebrow {
+    margin: 0 0 8px;
+
+    font-size: 10px;
+    letter-spacing: 1.7px;
+
+    color: #7f94aa;
+}
+
+
+.country-detail-empty h2,
+.country-detail-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 28px;
+}
+
+
+.country-detail-empty > p:last-child {
+    margin: 10px 0 0;
+
+    color: #8ea0b3;
+}
+
+
+.country-detail-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+.country-status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 12px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+
+.country-detail-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+
+.country-detail-stat {
+    background: #111a22;
+
+    border: 1px solid #26313b;
+    border-radius: 11px;
+
+    padding: 16px 18px;
+}
+
+
+.country-detail-stat span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+
+    color: #71879d;
+}
+
+
+.country-detail-stat strong {
+    color: #dce6ef;
+
+    font-size: 14px;
+}
+
+
+.country-detail-note {
+    margin-top: 18px;
+
+    color: #8ea0b3;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* VISITED */
+
+.country-status-badge.visited {
+    color: #77d8a5;
+
+    background: rgba(53, 167, 111, 0.12);
+
+    border: 1px solid rgba(53, 167, 111, 0.35);
+}
+
+
+/* WISHLIST */
+
+.country-status-badge.wishlist {
+    color: #78b5fa;
+
+    background: rgba(55, 137, 232, 0.12);
+
+    border: 1px solid rgba(55, 137, 232, 0.35);
+}
+
+
+/* FLOWN THROUGH */
+
+.country-status-badge.flown {
+    color: #77d8a5;
+
+    background: transparent;
+
+    border: 1px solid #35a76f;
+}
+
+
+/* NONE */
+
+.country-status-badge.none {
+    color: #98a7b5;
+
+    background: #141c24;
+
+    border: 1px solid #303a44;
+}
+
+
+@media (max-width: 700px) {
+
+    .country-detail-panel {
+        padding: 22px;
+    }
+
+    .country-detail-header {
+        flex-direction: column;
+    }
+
+    .country-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
