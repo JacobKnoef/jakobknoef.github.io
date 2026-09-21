@@ -1,5 +1,10 @@
+// =========================================
+// COUNTRIES MAP
+// =========================================
+
+
 // -----------------------------------------
-// BASE MAP
+// CREATE MAP
 // -----------------------------------------
 
 const map = L.map("country-map", {
@@ -9,9 +14,14 @@ const map = L.map("country-map", {
 }).setView([15, 10], 2);
 
 
-// -----------------------------------------
-// LOAD DATA
-// -----------------------------------------
+// No tile basemap is used.
+// The map background colour is controlled
+// by #country-map in style.css.
+
+
+// =========================================
+// LOAD ALL DATA
+// =========================================
 
 async function loadCountries() {
 
@@ -37,46 +47,69 @@ async function loadCountries() {
         ]);
 
 
+        // ---------------------------------
+        // CHECK RESPONSES
+        // ---------------------------------
+
         if (!travelResponse.ok) {
+
             throw new Error(
                 `countries.json failed: ${travelResponse.status}`
             );
+
         }
 
 
         if (!geoResponse.ok) {
+
             throw new Error(
                 `Country boundaries failed: ${geoResponse.status}`
             );
+
         }
 
 
         if (!flightsResponse.ok) {
+
             throw new Error(
                 `flights.json failed: ${flightsResponse.status}`
             );
+
         }
 
 
         if (!airportsResponse.ok) {
+
             throw new Error(
                 `airports.json failed: ${airportsResponse.status}`
             );
+
         }
 
+
+        // ---------------------------------
+        // CONVERT RESPONSES TO JSON
+        // ---------------------------------
 
         const travelData =
             await travelResponse.json();
 
+
         const worldData =
             await geoResponse.json();
+
 
         const flightsData =
             await flightsResponse.json();
 
+
         const airportsData =
             await airportsResponse.json();
 
+
+        // ---------------------------------
+        // UPDATE PAGE
+        // ---------------------------------
 
         updateCountryStats(
             travelData
@@ -102,35 +135,36 @@ async function loadCountries() {
 
 }
 
-// -----------------------------------------
-// UPDATE PAGE STATISTICS
-// -----------------------------------------
+
+// =========================================
+// TOP PAGE STATISTICS
+// =========================================
 
 function updateCountryStats(data) {
 
     document
         .getElementById("visited-count")
         .textContent =
-        data.visited.length;
+        data.visited?.length || 0;
 
 
     document
         .getElementById("flown-count")
         .textContent =
-        data["flown-through"].length;
+        data["flown-through"]?.length || 0;
 
 
     document
         .getElementById("wishlist-count")
         .textContent =
-        data.wishlist.length;
+        data.wishlist?.length || 0;
 
 }
 
 
-// -----------------------------------------
-// WORK OUT COUNTRY STATUS
-// -----------------------------------------
+// =========================================
+// COUNTRY STATUS
+// =========================================
 
 function getCountryStatus(
     countryName,
@@ -138,15 +172,21 @@ function getCountryStatus(
 ) {
 
     const visited =
-        data.visited.includes(countryName);
+        data.visited?.includes(
+            countryName
+        ) || false;
+
 
     const flown =
-        data["flown-through"].includes(
+        data["flown-through"]?.includes(
             countryName
-        );
+        ) || false;
+
 
     const wishlist =
-        data.wishlist.includes(countryName);
+        data.wishlist?.includes(
+            countryName
+        ) || false;
 
 
     return {
@@ -158,112 +198,143 @@ function getCountryStatus(
 }
 
 
-// -----------------------------------------
-// COUNTRY STYLING
-// -----------------------------------------
+// =========================================
+// COUNTRY MAP STYLE
+// =========================================
 
-function getCountryStyle(countryName, data) {
+function getCountryStyle(
+    countryName,
+    data
+) {
 
-    const status = getCountryStatus(
-        countryName,
-        data
-    );
-
-
-    // -----------------------------------------
-    // DEFAULT COUNTRY
-    // -----------------------------------------
-
-    let fillColor = "#e8ecef";
-    let fillOpacity = 1;
-
-    let borderColor = "#b8c0c7";
-    let borderWeight = 0.7;
+    const status =
+        getCountryStatus(
+            countryName,
+            data
+        );
 
 
-    // -----------------------------------------
-    // FILL
-    // -----------------------------------------
+    // -------------------------------------
+    // DEFAULT / NOT YET
+    // -------------------------------------
 
-    // Wishlist = blue fill
+    let fillColor =
+        "#e8ecef";
+
+    let fillOpacity =
+        1;
+
+    let borderColor =
+        "#b8c0c7";
+
+    let borderWeight =
+        0.7;
+
+
+    // -------------------------------------
+    // WISHLIST
+    // Blue fill
+    // -------------------------------------
 
     if (status.wishlist) {
 
-        fillColor = "#3789e8";
-        fillOpacity = 0.78;
+        fillColor =
+            "#3789e8";
+
+        fillOpacity =
+            0.78;
 
     }
 
 
-    // Visited = green fill
-    // This overrides wishlist if a country
-    // somehow appears in both.
+    // -------------------------------------
+    // VISITED
+    // Green fill
+    // Overrides wishlist
+    // -------------------------------------
 
     if (status.visited) {
 
-        fillColor = "#35a76f";
-        fillOpacity = 0.85;
+        fillColor =
+            "#35a76f";
+
+        fillOpacity =
+            0.85;
 
     }
 
 
-    // -----------------------------------------
-    // BORDER
-    // -----------------------------------------
-
-    // Flown through = green border,
-    // regardless of its fill status.
+    // -------------------------------------
+    // FLOWN THROUGH
+    // Green border
+    // -------------------------------------
 
     if (status.flown) {
 
-        borderColor = "#20b875";
-        borderWeight = 3;
+        borderColor =
+            "#20b875";
+
+        borderWeight =
+            3;
 
     }
 
-    // Visited countries get the normal
-    // darker green border unless they are
-    // also marked flown-through.
+
+    // -------------------------------------
+    // VISITED BORDER
+    // -------------------------------------
 
     else if (status.visited) {
 
-        borderColor = "#23764e";
-        borderWeight = 1.2;
+        borderColor =
+            "#23764e";
+
+        borderWeight =
+            1.2;
 
     }
 
-    // Wishlist-only countries get blue border.
+
+    // -------------------------------------
+    // WISHLIST BORDER
+    // -------------------------------------
 
     else if (status.wishlist) {
 
-        borderColor = "#2565ad";
-        borderWeight = 1.1;
+        borderColor =
+            "#2565ad";
+
+        borderWeight =
+            1.1;
 
     }
 
 
-    // -----------------------------------------
-    // FINAL STYLE
-    // -----------------------------------------
-
     return {
 
-        fillColor: fillColor,
-        fillOpacity: fillOpacity,
+        fillColor:
+            fillColor,
 
-        color: borderColor,
-        weight: borderWeight,
+        fillOpacity:
+            fillOpacity,
 
-        opacity: 1
+        color:
+            borderColor,
+
+        weight:
+            borderWeight,
+
+        opacity:
+            1
 
     };
 
 }
 
 
-// -----------------------------------------
-// CREATE STATUS TEXT
-// -----------------------------------------
+// =========================================
+// TOOLTIP STATUS TEXT
+// =========================================
 
 function getStatusText(
     countryName,
@@ -281,22 +352,36 @@ function getStatusText(
 
 
     if (status.visited) {
-        statuses.push("Visited");
+
+        statuses.push(
+            "Visited"
+        );
+
     }
 
 
     if (status.flown) {
-        statuses.push("Flown through");
+
+        statuses.push(
+            "Flown through"
+        );
+
     }
 
 
     if (status.wishlist) {
-        statuses.push("Wishlist");
+
+        statuses.push(
+            "Wishlist"
+        );
+
     }
 
 
     if (statuses.length === 0) {
-        return "Nah not interested yet";
+
+        return "Not yet";
+
     }
 
 
@@ -304,9 +389,10 @@ function getStatusText(
 
 }
 
-// -----------------------------------------
+
+// =========================================
 // COUNTRY FLIGHT ACTIVITY
-// -----------------------------------------
+// =========================================
 
 function getCountryFlightActivity(
     countryName,
@@ -314,86 +400,99 @@ function getCountryFlightActivity(
     airportsData
 ) {
 
-    const airportCodes = new Set();
-
-    let flightCount = 0;
-
-
-    flightsData.forEach(flight => {
-
-        const departure =
-            flight.departure;
-
-        const arrival =
-            flight.arrival;
+    const airportCodes =
+        new Set();
 
 
-        if (!departure || !arrival) {
-            return;
-        }
+    let flightCount =
+        0;
 
 
-        const departureMatches =
-            departure.country === countryName;
+    flightsData.forEach(
+        flight => {
+
+            const departure =
+                flight.departure;
 
 
-        const arrivalMatches =
-            arrival.country === countryName;
+            const arrival =
+                flight.arrival;
 
 
-        // Count this flight once if either end
-        // involves the selected country.
-        //
-        // This is especially important for
-        // domestic flights such as WLG → CHC:
-        // both ends are New Zealand, but it is
-        // still only ONE flight.
+            if (
+                !departure ||
+                !arrival
+            ) {
 
-        if (
-            departureMatches ||
-            arrivalMatches
-        ) {
+                return;
 
-            flightCount++;
-
-        }
+            }
 
 
-        // Add departure airport if it is
-        // inside the selected country.
+            const departureMatches =
+                departure.country ===
+                countryName;
 
-        if (
-            departureMatches &&
-            departure.iata
-        ) {
 
-            airportCodes.add(
+            const arrivalMatches =
+                arrival.country ===
+                countryName;
+
+
+            // Count the flight ONCE if either
+            // end involves this country.
+            //
+            // Example:
+            // WLG → CHC counts as one
+            // New Zealand flight, not two.
+
+            if (
+                departureMatches ||
+                arrivalMatches
+            ) {
+
+                flightCount++;
+
+            }
+
+
+            // Record airport codes.
+            // These are retained for future
+            // use even though the Countries
+            // page currently only displays
+            // the number of flights.
+
+            if (
+                departureMatches &&
                 departure.iata
-            );
+            ) {
 
-        }
+                airportCodes.add(
+                    departure.iata
+                );
+
+            }
 
 
-        // Add arrival airport if it is
-        // inside the selected country.
-
-        if (
-            arrivalMatches &&
-            arrival.iata
-        ) {
-
-            airportCodes.add(
+            if (
+                arrivalMatches &&
                 arrival.iata
-            );
+            ) {
+
+                airportCodes.add(
+                    arrival.iata
+                );
+
+            }
 
         }
-
-    });
+    );
 
 
     return {
 
-        flights: flightCount,
+        flights:
+            flightCount,
 
         airports:
             Array.from(
@@ -404,9 +503,69 @@ function getCountryFlightActivity(
 
 }
 
-// -----------------------------------------
+
+// =========================================
+// COUNTRY VISIT ACTIVITY
+// =========================================
+
+function getCountryVisitActivity(
+    countryName,
+    travelData
+) {
+
+    const visits =
+        travelData.visits?.[
+            countryName
+        ] || [];
+
+
+    const places =
+        new Set();
+
+
+    visits.forEach(
+        visit => {
+
+            if (
+                Array.isArray(
+                    visit.places
+                )
+            ) {
+
+                visit.places.forEach(
+                    place => {
+
+                        places.add(
+                            place
+                        );
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+
+    return {
+
+        visits:
+            visits.length,
+
+        places:
+            Array.from(
+                places
+            )
+
+    };
+
+}
+
+
+// =========================================
 // COUNTRY DETAIL PANEL
-// -----------------------------------------
+// =========================================
 
 function showCountryDetails(
     countryName,
@@ -415,18 +574,35 @@ function showCountryDetails(
     airportsData
 ) {
 
+    // -------------------------------------
+    // GET DATA
+    // -------------------------------------
+
     const status =
         getCountryStatus(
             countryName,
             travelData
         );
 
+
     const flightActivity =
-    getCountryFlightActivity(
-        countryName,
-        flightsData,
-        airportsData
-    );    
+        getCountryFlightActivity(
+            countryName,
+            flightsData,
+            airportsData
+        );
+
+
+    const visitActivity =
+        getCountryVisitActivity(
+            countryName,
+            travelData
+        );
+
+
+    // -------------------------------------
+    // GET PAGE ELEMENTS
+    // -------------------------------------
 
     const emptyPanel =
         document.getElementById(
@@ -458,9 +634,27 @@ function showCountryDetails(
         );
 
 
-    const flightElement =
+    const transitElement =
         document.getElementById(
             "country-detail-flight"
+        );
+
+
+    const visitCountElement =
+        document.getElementById(
+            "country-visit-count"
+        );
+
+
+    const flightCountElement =
+        document.getElementById(
+            "country-flight-count"
+        );
+
+
+    const placesListElement =
+        document.getElementById(
+            "country-places-list"
         );
 
 
@@ -469,109 +663,117 @@ function showCountryDetails(
             "country-detail-note"
         );
 
-    const flightCountElement =
-    document.getElementById(
-        "country-flight-count"
-    );
+
+    // -------------------------------------
+    // SHOW DETAIL VIEW
+    // -------------------------------------
+
+    emptyPanel.style.display =
+        "none";
 
 
-    const airportCountElement =
-    document.getElementById(
-        "country-airport-count"
-    );
+    contentPanel.style.display =
+        "block";
 
 
-    const airportListElement =
-    document.getElementById(
-        "country-airports-list"
-    );    
-
-    // Show detail view
-
-    emptyPanel.style.display = "none";
-    contentPanel.style.display = "block";
-
-
-    // Country name
+    // -------------------------------------
+    // COUNTRY NAME
+    // -------------------------------------
 
     nameElement.textContent =
         countryName;
 
 
-    // Remove previous badge styles
+    // -------------------------------------
+    // VISIT COUNT
+    // -------------------------------------
+
+    // A dash means visit history has not
+    // been entered yet.
+    //
+    // We don't show "0 visits" for a
+    // country already marked as visited.
+
+    visitCountElement.textContent =
+        visitActivity.visits > 0
+            ? visitActivity.visits
+            : "—";
+
+
+    // -------------------------------------
+    // FLIGHT COUNT
+    // -------------------------------------
+
+    flightCountElement.textContent =
+        flightActivity.flights;
+
+
+    // -------------------------------------
+    // PLACES VISITED
+    // -------------------------------------
+
+    if (
+        visitActivity.places.length > 0
+    ) {
+
+        placesListElement.textContent =
+            visitActivity.places.join(
+                " • "
+            );
+
+    } else {
+
+        placesListElement.textContent =
+            "No places recorded yet";
+
+    }
+
+
+    // -------------------------------------
+    // RESET STATUS BADGE
+    // -------------------------------------
 
     badgeElement.className =
         "country-status-badge";
 
 
-
-    flightCountElement.textContent =
-    flightActivity.flights;
-
-
-airportCountElement.textContent =
-    flightActivity.airports.length;
-
-
-if (flightActivity.airports.length > 0) {
-
-    airportListElement.innerHTML =
-        flightActivity.airports
-            .map(code => {
-
-                const airport =
-                    airportsData[code];
-
-                return `
-                    <span
-                        class="country-airport-code"
-                        title="${airport.name}"
-                    >
-                        ${code}
-                    </span>
-                `;
-
-            })
-            .join("");
-
-} else {
-
-    airportListElement.textContent =
-        "No logged airports";
-
-}    
-    // -----------------------------------------
+    // =====================================
     // VISITED
-    // -----------------------------------------
+    // =====================================
 
     if (status.visited) {
 
         badgeElement.textContent =
             "VISITED";
 
+
         badgeElement.classList.add(
             "visited"
         );
 
+
         travelElement.textContent =
             "Visited";
 
-        flightElement.textContent =
+
+        transitElement.textContent =
             status.flown
                 ? "Flown through"
                 : "—";
 
+
         noteElement.textContent =
             "You've visited this country.";
+
 
         return;
 
     }
 
 
-    // -----------------------------------------
+    // =====================================
     // WISHLIST + FLOWN THROUGH
-    // -----------------------------------------
+    // =====================================
 
     if (
         status.wishlist &&
@@ -581,103 +783,123 @@ if (flightActivity.airports.length > 0) {
         badgeElement.textContent =
             "WISHLIST";
 
+
         badgeElement.classList.add(
             "wishlist"
         );
 
+
         travelElement.textContent =
             "Wishlist";
 
-        flightElement.textContent =
+
+        transitElement.textContent =
             "Flown through";
+
 
         noteElement.textContent =
             "You've passed through this country, but it is still on your wishlist.";
+
 
         return;
 
     }
 
 
-    // -----------------------------------------
+    // =====================================
     // WISHLIST
-    // -----------------------------------------
+    // =====================================
 
     if (status.wishlist) {
 
         badgeElement.textContent =
             "WISHLIST";
 
+
         badgeElement.classList.add(
             "wishlist"
         );
 
+
         travelElement.textContent =
             "Wishlist";
 
-        flightElement.textContent =
+
+        transitElement.textContent =
             "—";
+
 
         noteElement.textContent =
             "This country is on your travel wishlist.";
+
 
         return;
 
     }
 
 
-    // -----------------------------------------
+    // =====================================
     // FLOWN THROUGH
-    // -----------------------------------------
+    // =====================================
 
     if (status.flown) {
 
         badgeElement.textContent =
             "FLOWN THROUGH";
 
+
         badgeElement.classList.add(
             "flown"
         );
 
+
         travelElement.textContent =
             "Not visited";
 
-        flightElement.textContent =
+
+        transitElement.textContent =
             "Flown through";
+
 
         noteElement.textContent =
             "You've passed through this country, but haven't counted it as visited.";
+
 
         return;
 
     }
 
 
-    // -----------------------------------------
+    // =====================================
     // NOT YET
-    // -----------------------------------------
+    // =====================================
 
     badgeElement.textContent =
         "NOT YET";
+
 
     badgeElement.classList.add(
         "none"
     );
 
+
     travelElement.textContent =
         "Not visited";
 
-    flightElement.textContent =
+
+    transitElement.textContent =
         "—";
+
 
     noteElement.textContent =
         "No travel history recorded for this country yet.";
 
 }
 
-// -----------------------------------------
-// DRAW COUNTRIES
-// -----------------------------------------
+
+// =========================================
+// DRAW WORLD COUNTRIES
+// =========================================
 
 function drawCountries(
     worldData,
@@ -690,18 +912,28 @@ function drawCountries(
         worldData,
         {
 
-            style: function (feature) {
+            // ---------------------------------
+            // COUNTRY COLOURS
+            // ---------------------------------
 
-                const countryName =
-                    feature.properties.name;
+            style:
+                function (feature) {
 
-                return getCountryStyle(
-                    countryName,
-                    travelData
-                );
+                    const countryName =
+                        feature.properties.name;
 
-            },
 
+                    return getCountryStyle(
+                        countryName,
+                        travelData
+                    );
+
+                },
+
+
+            // ---------------------------------
+            // COUNTRY INTERACTIONS
+            // ---------------------------------
 
             onEachFeature:
                 function (
@@ -720,15 +952,19 @@ function drawCountries(
                         );
 
 
+                    // -------------------------
+                    // HOVER TOOLTIP
+                    // -------------------------
+
                     layer.bindTooltip(
                         `
-                        <strong>
-                            ${countryName}
-                        </strong>
+                            <strong>
+                                ${countryName}
+                            </strong>
 
-                        <br>
+                            <br>
 
-                        ${statusText}
+                            ${statusText}
                         `,
                         {
                             sticky: true,
@@ -736,6 +972,10 @@ function drawCountries(
                         }
                     );
 
+
+                    // -------------------------
+                    // HOVER HIGHLIGHT
+                    // -------------------------
 
                     layer.on(
                         "mouseover",
@@ -746,11 +986,16 @@ function drawCountries(
                                 fillOpacity: 0.9
                             });
 
+
                             layer.bringToFront();
 
                         }
                     );
 
+
+                    // -------------------------
+                    // RESET AFTER HOVER
+                    // -------------------------
 
                     layer.on(
                         "mouseout",
@@ -766,30 +1011,35 @@ function drawCountries(
                         }
                     );
 
+
+                    // -------------------------
+                    // CLICK COUNTRY
+                    // -------------------------
+
                     layer.on(
                         "click",
                         function () {
 
-                        showCountryDetails(
-                            countryName,
-                            travelData,
-                            flightsData,
-                            airportsData
-                    );
+                            showCountryDetails(
+                                countryName,
+                                travelData,
+                                flightsData,
+                                airportsData
+                            );
 
-                    }
-                );
+                        }
+                    );
 
                 }
 
         }
-        ).addTo(map);
+    ).addTo(map);
 
 }
 
 
-// -----------------------------------------
+// =========================================
 // START
-// -----------------------------------------
+// =========================================
 
 loadCountries();

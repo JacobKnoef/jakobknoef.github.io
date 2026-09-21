@@ -1005,3 +1005,71 @@ footer {
     }
 
 }
+
+/* ================================
+   COUNTRY TRAVEL ACTIVITY
+================================ */
+
+.country-travel-section {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid #252c36;
+}
+
+
+.country-travel-summary {
+    display: flex;
+    gap: 45px;
+
+    margin-top: 14px;
+    margin-bottom: 22px;
+}
+
+
+.country-travel-summary div {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+
+.country-travel-summary strong {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+
+.country-travel-summary span {
+    color: #7f94aa;
+    font-size: 12px;
+}
+
+
+.country-places-block {
+    background: #111a22;
+
+    border: 1px solid #26313b;
+    border-radius: 11px;
+
+    padding: 15px 18px;
+}
+
+
+.country-travel-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #71879d;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+}
+
+
+#country-places-list {
+    color: #dce6ef;
+
+    font-size: 14px;
+    line-height: 1.7;
+}

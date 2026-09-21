@@ -56,6 +56,8 @@
 
         <section class="countries-section">
 
+            <!-- COUNTRY TOTALS -->
+
             <div class="country-stats">
 
                 <div class="country-stat-card">
@@ -75,6 +77,8 @@
 
             </div>
 
+
+            <!-- WORLD MAP -->
 
             <div class="country-map-wrapper">
 
@@ -106,118 +110,167 @@
 
                 </div>
 
-                <div class="country-detail-panel" id="country-detail-panel">
-
-    <div class="country-detail-empty" id="country-detail-empty">
-
-        <p class="country-detail-eyebrow">COUNTRY EXPLORER</p>
-
-        <h2>Select a country</h2>
-
-        <p>
-            Click anywhere on the map to explore your travel status.
-        </p>
-
-    </div>
-
-
-    <div
-        class="country-detail-content"
-        id="country-detail-content"
-        style="display: none;"
-    >
-
-        <div class="country-detail-header">
-
-            <div>
-                <p class="country-detail-eyebrow">
-                    COUNTRY
-                </p>
-
-                <h2 id="country-detail-name">
-                    —
-                </h2>
             </div>
 
-            <span
-                class="country-status-badge"
-                id="country-detail-status"
+
+            <!-- COUNTRY DETAIL PANEL -->
+
+            <div
+                class="country-detail-panel"
+                id="country-detail-panel"
             >
-                —
-            </span>
 
-        </div>
+                <!-- EMPTY STATE -->
 
+                <div
+                    class="country-detail-empty"
+                    id="country-detail-empty"
+                >
 
-        <div class="country-detail-grid">
+                    <p class="country-detail-eyebrow">
+                        COUNTRY EXPLORER
+                    </p>
 
-            <div class="country-detail-stat">
+                    <h2>Select a country</h2>
 
-                <span>TRAVEL STATUS</span>
+                    <p>
+                        Click anywhere on the map to explore
+                        your travel status.
+                    </p>
 
-                <strong id="country-detail-travel">
-                    —
-                </strong>
-
-            </div>
-
-
-            <div class="country-detail-stat">
-
-                <span>TRANSIT STATUS</span>
-
-                <strong id="country-detail-flight">
-                    —
-                </strong>
-
-            </div>
-
-        </div>
-
-        <div class="country-flight-section">
-
-    <p class="country-detail-eyebrow">
-        FLIGHT ACTIVITY
-    </p>
-
-    <div class="country-flight-summary">
-
-        <div>
-            <strong id="country-flight-count">—</strong>
-            <span>Flights</span>
-        </div>
-
-        <div>
-            <strong id="country-airport-count">—</strong>
-            <span>Airports</span>
-        </div>
-
-    </div>
+                </div>
 
 
-    <div class="country-airports-block">
+                <!-- SELECTED COUNTRY -->
 
-        <span class="country-flight-label">
-            AIRPORTS USED
-        </span>
+                <div
+                    class="country-detail-content"
+                    id="country-detail-content"
+                    style="display: none;"
+                >
 
-        <div id="country-airports-list">
-            —
-        </div>
+                    <!-- COUNTRY HEADER -->
 
-    </div>
+                    <div class="country-detail-header">
 
-</div>
+                        <div>
 
-        <div
-            class="country-detail-note"
-            id="country-detail-note"
-        >
-        </div>
+                            <p class="country-detail-eyebrow">
+                                COUNTRY
+                            </p>
 
-    </div>
+                            <h2 id="country-detail-name">
+                                —
+                            </h2>
 
-</div>
+                        </div>
+
+                        <span
+                            class="country-status-badge"
+                            id="country-detail-status"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="country-detail-grid">
+
+                        <div class="country-detail-stat">
+
+                            <span>
+                                TRAVEL STATUS
+                            </span>
+
+                            <strong id="country-detail-travel">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="country-detail-stat">
+
+                            <span>
+                                TRANSIT STATUS
+                            </span>
+
+                            <strong id="country-detail-flight">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRAVEL ACTIVITY -->
+
+                    <div class="country-travel-section">
+
+                        <p class="country-detail-eyebrow">
+                            TRAVEL ACTIVITY
+                        </p>
+
+                        <div class="country-travel-summary">
+
+                            <div>
+
+                                <strong id="country-visit-count">
+                                    —
+                                </strong>
+
+                                <span>
+                                    Visits
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong id="country-flight-count">
+                                    —
+                                </strong>
+
+                                <span>
+                                    Flights
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PLACES VISITED -->
+
+                        <div class="country-places-block">
+
+                            <span class="country-travel-label">
+                                PLACES VISITED
+                            </span>
+
+                            <div id="country-places-list">
+                                No places recorded yet
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div
+                        class="country-detail-note"
+                        id="country-detail-note"
+                    >
+                    </div>
+
+                </div>
 
             </div>
 
