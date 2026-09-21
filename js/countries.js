@@ -130,103 +130,100 @@ function getCountryStatus(
 // COUNTRY STYLING
 // -----------------------------------------
 
-function getCountryStyle(
-    countryName,
-    data
-) {
+function getCountryStyle(countryName, data) {
 
-    const status =
-        getCountryStatus(
-            countryName,
-            data
-        );
+    const status = getCountryStatus(
+        countryName,
+        data
+    );
 
 
-    // VISITED
-    // Green fill takes highest priority.
+    // -----------------------------------------
+    // DEFAULT COUNTRY
+    // -----------------------------------------
 
-    if (status.visited) {
+    let fillColor = "#e8ecef";
+    let fillOpacity = 1;
 
-        return {
-            fillColor: "#35a76f",
-            fillOpacity: 0.8,
-
-            color: "#23764e",
-            weight: 1.2,
-
-            opacity: 1
-        };
-
-    }
+    let borderColor = "#b8c0c7";
+    let borderWeight = 0.7;
 
 
-    // WISHLIST + FLOWN THROUGH
-    // Blue fill with green outline.
+    // -----------------------------------------
+    // FILL
+    // -----------------------------------------
 
-    if (
-        status.wishlist &&
-        status.flown
-    ) {
-
-        return {
-        fillColor: "#e8ecef",
-        fillOpacity: 1,
-
-        color: "#b8c0c7",
-        weight: 0.7,
-
-        opacity: 1
-        };
-
-    }
-
-
-    // WISHLIST
-    // Blue fill.
+    // Wishlist = blue fill
 
     if (status.wishlist) {
 
-        return {
-            fillColor: "#3789e8",
-            fillOpacity: 0.72,
-
-            color: "#2565ad",
-            weight: 1.1,
-
-            opacity: 1
-        };
+        fillColor = "#3789e8";
+        fillOpacity = 0.78;
 
     }
 
 
-    // FLOWN THROUGH
-    // Neutral interior + green outline.
+    // Visited = green fill
+    // This overrides wishlist if a country
+    // somehow appears in both.
+
+    if (status.visited) {
+
+        fillColor = "#35a76f";
+        fillOpacity = 0.85;
+
+    }
+
+
+    // -----------------------------------------
+    // BORDER
+    // -----------------------------------------
+
+    // Flown through = green border,
+    // regardless of its fill status.
 
     if (status.flown) {
 
-        return {
-            fillColor: "#e8ecef",
-            fillOpacity: 1,
-            
-            color: "#35a76f",
-            weight: 2.5,
+        borderColor = "#20b875";
+        borderWeight = 3;
 
-            opacity: 1
-        };
+    }
+
+    // Visited countries get the normal
+    // darker green border unless they are
+    // also marked flown-through.
+
+    else if (status.visited) {
+
+        borderColor = "#23764e";
+        borderWeight = 1.2;
+
+    }
+
+    // Wishlist-only countries get blue border.
+
+    else if (status.wishlist) {
+
+        borderColor = "#2565ad";
+        borderWeight = 1.1;
 
     }
 
 
-    // EVERYTHING ELSE
+    // -----------------------------------------
+    // FINAL STYLE
+    // -----------------------------------------
 
     return {
-        fillColor: "#cfd5da",
-        fillOpacity: 0.22,
 
-        color: "#aeb7bf",
-        weight: 0.7,
+        fillColor: fillColor,
+        fillOpacity: fillOpacity,
 
-        opacity: 0.8
+        color: borderColor,
+        weight: borderWeight,
+
+        opacity: 1
+
     };
 
 }
