@@ -405,12 +405,6 @@ function drawAirports(stats) {
 
         marker.addTo(map);
 
-        marker.on("click", function () {
-
-        marker.openPopup();
-
-        });
-
         airportLayers.push({
         marker: marker,
         iata: iata,
@@ -589,7 +583,6 @@ function highlightRoute(selectedRoute) {
 
 }
 
-
 function resetRouteHighlight() {
 
     routeLayers.forEach(routeData => {
@@ -601,7 +594,6 @@ function resetRouteHighlight() {
 
     });
 
-
     airportLayers.forEach(airportData => {
 
         airportData.marker.setStyle({
@@ -610,6 +602,8 @@ function resetRouteHighlight() {
             weight: 2,
             radius: airportData.normalRadius
         });
+
+        airportData.marker.bringToFront();
 
     });
 
@@ -644,41 +638,6 @@ function drawRoutes(routes) {
 
 
         // SHORT INFORMATION WHEN HOVERING
-
-        line.bindTooltip(
-            `
-            <div class="route-tooltip">
-
-                <strong>
-                    ${route.airportA} ↔ ${route.airportB}
-                </strong>
-
-                <br>
-
-                ${airportA.city} ↔ ${airportB.city}
-
-                <br><br>
-
-                ${route.flights}
-                flight${route.flights === 1 ? "" : "s"}
-
-                <br>
-
-                ${Math.round(route.totalDistanceKm).toLocaleString()}
-                km total
-
-            </div>
-            `,
-            {
-                sticky: false,
-                permanent: false,
-                interactive: false,
-                direction: "top",
-                opacity: 0.95,
-                offset: [0, -8]
-            }
-        );
-
 
         line.bindPopup(
             `
@@ -772,31 +731,15 @@ function drawRoutes(routes) {
             }
         );
 
-        line.on("mouseover", function () {
+       line.on("mouseover", function () {
+            highlightRoute(line);
+            });
 
-    highlightRoute(line);
-
-    line.openTooltip();
-
-});
-
-
-line.on("mouseout", function () {
-
-    line.closeTooltip();
-
+        line.on("mouseout", function () {
     resetRouteHighlight();
+            });
 
-});
-
-
-line.on("click", function () {
-
-    line.closeTooltip();
-
-    line.openPopup();
-
-});
+    });
 
         line.addTo(map);
 
@@ -806,8 +749,6 @@ line.on("click", function () {
         airportB: route.airportB,
         normalWeight: weight
 });
-
-    });
 
 }
 
