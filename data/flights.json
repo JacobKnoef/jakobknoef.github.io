@@ -452,7 +452,7 @@
     "arrival": {
       "iata": "IAH",
       "airport": "Houston",
-      "country": "USA",
+      "country": "United States of America",
       "continent": "North America"
     },
     "aircraft": "Boeing 777-300ER",
@@ -468,7 +468,7 @@
     "departure": {
       "iata": "IAH",
       "airport": "Houston",
-      "country": "USA",
+      "country": "United States of America",
       "continent": "North America"
     },
     "arrival": {
