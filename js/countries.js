@@ -1,22 +1,12 @@
+// -----------------------------------------
+// BASE MAP
+// -----------------------------------------
+
 const map = L.map("country-map", {
     minZoom: 2,
     maxZoom: 7,
     worldCopyJump: true
 }).setView([15, 10], 2);
-
-
-// -----------------------------------------
-// BASE MAP
-// -----------------------------------------
-
-L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
-    {
-        attribution:
-            "&copy; OpenStreetMap contributors &copy; CARTO",
-        maxZoom: 19
-    }
-).addTo(map);
 
 
 // -----------------------------------------
@@ -179,13 +169,13 @@ function getCountryStyle(
     ) {
 
         return {
-            fillColor: "#3789e8",
-            fillOpacity: 0.72,
+        fillColor: "#e8ecef",
+        fillOpacity: 1,
 
-            color: "#35a76f",
-            weight: 2.5,
+        color: "#b8c0c7",
+        weight: 0.7,
 
-            opacity: 1
+        opacity: 1
         };
 
     }
@@ -215,9 +205,9 @@ function getCountryStyle(
     if (status.flown) {
 
         return {
-            fillColor: "#d8dde2",
-            fillOpacity: 0.2,
-
+            fillColor: "#e8ecef",
+            fillOpacity: 1,
+            
             color: "#35a76f",
             weight: 2.5,
 
