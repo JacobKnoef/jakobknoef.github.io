@@ -321,32 +321,33 @@ function getCountryFlightActivity(
 
     flightsData.forEach(flight => {
 
-        const departureCode =
+        const departure =
             flight.departure;
 
-        const arrivalCode =
+        const arrival =
             flight.arrival;
 
 
-        const departureAirport =
-            airportsData[departureCode];
-
-        const arrivalAirport =
-            airportsData[arrivalCode];
+        if (!departure || !arrival) {
+            return;
+        }
 
 
         const departureMatches =
-            departureAirport &&
-            departureAirport.country === countryName;
+            departure.country === countryName;
 
 
         const arrivalMatches =
-            arrivalAirport &&
-            arrivalAirport.country === countryName;
+            arrival.country === countryName;
 
 
-        // Count the flight once if either end
-        // involves this country.
+        // Count this flight once if either end
+        // involves the selected country.
+        //
+        // This is especially important for
+        // domestic flights such as WLG → CHC:
+        // both ends are New Zealand, but it is
+        // still only ONE flight.
 
         if (
             departureMatches ||
@@ -358,21 +359,31 @@ function getCountryFlightActivity(
         }
 
 
-        // Record airports used in this country.
+        // Add departure airport if it is
+        // inside the selected country.
 
-        if (departureMatches) {
+        if (
+            departureMatches &&
+            departure.iata
+        ) {
 
             airportCodes.add(
-                departureCode
+                departure.iata
             );
 
         }
 
 
-        if (arrivalMatches) {
+        // Add arrival airport if it is
+        // inside the selected country.
+
+        if (
+            arrivalMatches &&
+            arrival.iata
+        ) {
 
             airportCodes.add(
-                arrivalCode
+                arrival.iata
             );
 
         }
