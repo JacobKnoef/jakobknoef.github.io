@@ -2088,6 +2088,50 @@
   "route": "SYD-CHC",
   "distanceKm": 2100,
   "flightTimeHours": 3.2
+ },
+ {
+  "date":"2026-11-07",
+  "airline": "Air New Zealand",
+  "flightNumber":"NZ5842",
+  "departure": {
+    "iata": "CHC",
+    "airport": "Christchurch",
+    "country": "New Zealand",
+    "continent": "Oceania"
+  },
+  "arrival": {
+    "iata": "NSN",
+    "airport": "Nelson",
+    "country": "New Zealand",
+    "continent": "Oceania"
+  },
+  "aircraft": "ATR 72-600",
+  "registration": "TBC",
+  "route": "CHC-NSN",
+  "distanceKm": 250,
+  "flightTimeHours": 1
+ },
+ {
+  "date":"2026-11-08",
+  "airline": "Air New Zealand",
+  "flightNumber":"NZ5853",
+  "departure": {
+    "iata": "NSN",
+    "airport": "Nelson",
+    "country": "New Zealand",
+    "continent": "Oceania"
+  },
+  "arrival": {
+    "iata": "CHC",
+    "airport": "Christchurch",
+    "country": "New Zealand",
+    "continent": "Oceania"
+  },
+  "aircraft": "ATR 72-600",
+  "registration": "TBC",
+  "route": "NSN-CHC",
+  "distanceKm": 250,
+  "flightTimeHours": 1
  }
 ]
 
