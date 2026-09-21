@@ -2044,5 +2044,50 @@
     "route": "WLG-CHC",
     "distanceKm": 300,
     "flightTimeHours": 0.375
-  }
+  },
+  {
+  "date":"2026-09-22",
+  "airline": "Emirates",
+  "flightNumber":"EK413",
+  "departure": {
+    "iata": "CHC",
+    "airport": "Christchurch",
+    "country": "New Zealand",
+    "continent": "Oceania"
+  },
+  "arrival": {
+    "iata": "SYD",
+    "airport": "Sydney",
+    "country": "Australia",
+    "continent": "Oceania"
+  },
+  "aircraft": "Airbus A380-800",
+  "registration": "TBC",
+  "route": "CHC-SYD",
+  "distanceKm": 2100,
+  "flightTimeHours": 3.2
+ },
+ {
+  "date":"2026-10-04",
+  "airline": "Air New Zealand",
+  "flightNumber":"NZ224",
+  "departure": {
+    "iata": "SYD",
+    "airport": "Sydney",
+    "country": "Australia",
+    "continent": "Oceania"
+  },
+  "arrival": {
+    "iata": "CHC",
+    "airport": "Christchurch",
+    "country": "New Zealand",
+    "continent": "Oceania"
+  },
+  "aircraft": "Airbus A320N",
+  "registration": "TBC",
+  "route": "SYD-CHC",
+  "distanceKm": 2100,
+  "flightTimeHours": 3.2
+ }
 ]
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Countries | Jakob's Travels</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            JAKOB'S TRAVELS
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="flights.html">Flight Log</a>
+            <a href="map.html">Flight Map</a>
+            <a href="countries.html">Countries</a>
+            <a href="#">Statistics</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="page-header">
+
+            <p class="eyebrow">
+                THE WORLD
+            </p>
+
+            <div class="page-title-row">
+                <h1>Countries</h1>
+            </div>
+
+            <p class="intro">
+                Where I've been, where I've passed through,
+                and where I want to go.
+            </p>
+
+        </section>
+
+
+        <section class="countries-section">
+
+            <div class="country-stats">
+
+                <div class="country-stat-card">
+                    <span id="visited-count">—</span>
+                    <small>Visited</small>
+                </div>
+
+                <div class="country-stat-card">
+                    <span id="flown-count">—</span>
+                    <small>Flown Through</small>
+                </div>
+
+                <div class="country-stat-card">
+                    <span id="wishlist-count">—</span>
+                    <small>Wishlist</small>
+                </div>
+
+            </div>
+
+
+            <div class="country-map-wrapper">
+
+                <div id="country-map"></div>
+
+                <div class="country-map-legend">
+
+                    <p>TRAVEL STATUS</p>
+
+                    <div>
+                        <span class="country-key visited"></span>
+                        Visited
+                    </div>
+
+                    <div>
+                        <span class="country-key flown"></span>
+                        Flown through
+                    </div>
+
+                    <div>
+                        <span class="country-key wishlist"></span>
+                        Wishlist
+                    </div>
+
+                    <div>
+                        <span class="country-key unvisited"></span>
+                        Not yet
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Jakob's Travels</p>
+    </footer>
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="js/countries.js"></script>
+
+</body>
+
+</html>
