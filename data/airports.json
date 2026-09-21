@@ -216,6 +216,13 @@
     "latitude": -39.0085983276,
     "longitude": 174.179000854
   },
+  "NSN": {
+    "name": "Nelson Airport",
+    "city": "Nelson",
+    "country": "New Zealand",
+    "latitude": -41.2989006042,
+    "longitude": 173.221008301
+  },
   "OPO": {
     "name": "Francisco Sá Carneiro Airport",
     "city": "Porto",
