@@ -474,7 +474,7 @@
     "arrival": {
       "iata": "LHR",
       "airport": "London",
-      "country": "UK",
+      "country": "United Kingdom",
       "continent": "Europe"
     },
     "aircraft": "Boeing 787-900",
@@ -490,13 +490,13 @@
     "departure": {
       "iata": "LHR",
       "airport": "London",
-      "country": "UK",
+      "country": "United Kingdom",
       "continent": "Europe"
     },
     "arrival": {
       "iata": "EDI",
       "airport": "Edinburgh",
-      "country": "UK",
+      "country": "United Kingdom",
       "continent": "Europe"
     },
     "aircraft": "Airbus A320-200",
@@ -512,7 +512,7 @@
     "departure": {
       "iata": "EDI",
       "airport": "Edinburgh",
-      "country": "UK",
+      "country": "United Kingdom",
       "continent": "Europe"
     },
     "arrival": {
@@ -584,7 +584,7 @@
     "arrival": {
       "iata": "EDI",
       "airport": "Edinburgh",
-      "country": "UK",
+      "country": "United Kingdom",
       "continent": "Europe"
     },
     "aircraft": "Airbus A320N",
@@ -600,7 +600,7 @@
     "departure": {
       "iata": "EDI",
       "airport": "Edinburgh",
-      "country": "UK",
+      "country": "United Kingdom",
       "continent": "Europe"
     },
     "arrival": {
