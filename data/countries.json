@@ -8,26 +8,7 @@
         "Finland",
         "Sweden",
         "Bulgaria",
-        {
-            "Italy": [
-            {
-                "year": 2023,
-                "places": ["Venice", "Milan","Pieve di Cadore", "San Martino di Castrozza", "Cortina d'Ampezzo", "Trento" ]
-            },
-            {
-                "year": 2024,
-                "places": ["Trieste", "Venice", "Vittorio Veneto", "Trento", "Baselga di Pine", "Milan","Genova"]
-            },
-            {
-                "year": 2025,
-                "places": ["Trento", "Milan", "Bolzano", "San Martino di Castrozza", "Baselga di Pine","Genova", "Levico Terme", "Cembra"]
-            },
-            {
-                "year": 2026,
-                "places": ["Milan", "Genova","Spotorno", "Masone"]
-            }
-            ]
-        },
+        "Italy",
         "China",
         "Turkey",
         "Albania",
@@ -138,4 +119,57 @@
         "Papua New Guinea",
         "Vanuatu"
     ]
+
+,
+
+"visits": {
+    "Italy": [
+        {
+            "year": 2023,
+            "places": [
+                "Venice",
+                "Milan",
+                "Pieve di Cadore",
+                "San Martino di Castrozza",
+                "Cortina d'Ampezzo",
+                "Trento"
+            ]
+        },
+        {
+            "year": 2024,
+            "places": [
+                "Trieste",
+                "Venice",
+                "Vittorio Veneto",
+                "Trento",
+                "Baselga di Pine",
+                "Milan",
+                "Genova"
+            ]
+        },
+        {
+            "year": 2025,
+            "places": [
+                "Trento",
+                "Milan",
+                "Bolzano",
+                "San Martino di Castrozza",
+                "Baselga di Pine",
+                "Genova",
+                "Levico Terme",
+                "Cembra"
+            ]
+        },
+        {
+            "year": 2026,
+            "places": [
+                "Milan",
+                "Genova",
+                "Spotorno",
+                "Masone"
+            ]
+        }
+    ]
+}
+
 }
