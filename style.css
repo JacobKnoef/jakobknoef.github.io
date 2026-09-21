@@ -898,3 +898,110 @@ footer {
     }
 
 }
+
+/* ================================
+   COUNTRY FLIGHT ACTIVITY
+================================ */
+
+.country-flight-section {
+    margin-top: 26px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #252c36;
+}
+
+
+.country-flight-summary {
+    display: flex;
+
+    gap: 45px;
+
+    margin-top: 14px;
+    margin-bottom: 22px;
+}
+
+
+.country-flight-summary div {
+    display: flex;
+    align-items: baseline;
+
+    gap: 8px;
+}
+
+
+.country-flight-summary strong {
+    color: #ffffff;
+
+    font-size: 30px;
+}
+
+
+.country-flight-summary span {
+    color: #7f94aa;
+
+    font-size: 12px;
+}
+
+
+.country-airports-block {
+    background: #111a22;
+
+    border: 1px solid #26313b;
+    border-radius: 11px;
+
+    padding: 15px 18px;
+}
+
+
+.country-flight-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #71879d;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+}
+
+
+#country-airports-list {
+    color: #dce6ef;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.country-airport-code {
+    display: inline-block;
+
+    margin-right: 8px;
+    margin-bottom: 5px;
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    background: #17222d;
+
+    border: 1px solid #2b3946;
+
+    color: #9ec7f5;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+@media (max-width: 700px) {
+
+    .country-flight-summary {
+        gap: 25px;
+    }
+
+}

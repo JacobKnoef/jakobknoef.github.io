@@ -17,16 +17,24 @@ async function loadCountries() {
 
     try {
 
-        const [travelResponse, geoResponse] =
-            await Promise.all([
+        const [
+            travelResponse,
+            geoResponse,
+            flightsResponse,
+            airportsResponse
+        ] = await Promise.all([
 
-                fetch("data/countries.json"),
+            fetch("data/countries.json"),
 
-                fetch(
-                    "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
-                )
+            fetch(
+                "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
+            ),
 
-            ]);
+            fetch("data/flights.json"),
+
+            fetch("data/airports.json")
+
+        ]);
 
 
         if (!travelResponse.ok) {
@@ -43,18 +51,43 @@ async function loadCountries() {
         }
 
 
+        if (!flightsResponse.ok) {
+            throw new Error(
+                `flights.json failed: ${flightsResponse.status}`
+            );
+        }
+
+
+        if (!airportsResponse.ok) {
+            throw new Error(
+                `airports.json failed: ${airportsResponse.status}`
+            );
+        }
+
+
         const travelData =
             await travelResponse.json();
 
         const worldData =
             await geoResponse.json();
 
+        const flightsData =
+            await flightsResponse.json();
 
-        updateCountryStats(travelData);
+        const airportsData =
+            await airportsResponse.json();
+
+
+        updateCountryStats(
+            travelData
+        );
+
 
         drawCountries(
             worldData,
-            travelData
+            travelData,
+            flightsData,
+            airportsData
         );
 
 
@@ -68,7 +101,6 @@ async function loadCountries() {
     }
 
 }
-
 
 // -----------------------------------------
 // UPDATE PAGE STATISTICS
@@ -272,6 +304,94 @@ function getStatusText(
 
 }
 
+// -----------------------------------------
+// COUNTRY FLIGHT ACTIVITY
+// -----------------------------------------
+
+function getCountryFlightActivity(
+    countryName,
+    flightsData,
+    airportsData
+) {
+
+    const airportCodes = new Set();
+
+    let flightCount = 0;
+
+
+    flightsData.forEach(flight => {
+
+        const departureCode =
+            flight.departure;
+
+        const arrivalCode =
+            flight.arrival;
+
+
+        const departureAirport =
+            airportsData[departureCode];
+
+        const arrivalAirport =
+            airportsData[arrivalCode];
+
+
+        const departureMatches =
+            departureAirport &&
+            departureAirport.country === countryName;
+
+
+        const arrivalMatches =
+            arrivalAirport &&
+            arrivalAirport.country === countryName;
+
+
+        // Count the flight once if either end
+        // involves this country.
+
+        if (
+            departureMatches ||
+            arrivalMatches
+        ) {
+
+            flightCount++;
+
+        }
+
+
+        // Record airports used in this country.
+
+        if (departureMatches) {
+
+            airportCodes.add(
+                departureCode
+            );
+
+        }
+
+
+        if (arrivalMatches) {
+
+            airportCodes.add(
+                arrivalCode
+            );
+
+        }
+
+    });
+
+
+    return {
+
+        flights: flightCount,
+
+        airports:
+            Array.from(
+                airportCodes
+            ).sort()
+
+    };
+
+}
 
 // -----------------------------------------
 // COUNTRY DETAIL PANEL
@@ -279,7 +399,9 @@ function getStatusText(
 
 function showCountryDetails(
     countryName,
-    travelData
+    travelData,
+    flightsData,
+    airportsData
 ) {
 
     const status =
@@ -288,6 +410,12 @@ function showCountryDetails(
             travelData
         );
 
+    const flightActivity =
+    getCountryFlightActivity(
+        countryName,
+        flightsData,
+        airportsData
+    );    
 
     const emptyPanel =
         document.getElementById(
@@ -330,6 +458,22 @@ function showCountryDetails(
             "country-detail-note"
         );
 
+    const flightCountElement =
+    document.getElementById(
+        "country-flight-count"
+    );
+
+
+    const airportCountElement =
+    document.getElementById(
+        "country-airport-count"
+    );
+
+
+    const airportListElement =
+    document.getElementById(
+        "country-airports-list"
+    );    
 
     // Show detail view
 
@@ -349,6 +493,42 @@ function showCountryDetails(
         "country-status-badge";
 
 
+
+    flightCountElement.textContent =
+    flightActivity.flights;
+
+
+airportCountElement.textContent =
+    flightActivity.airports.length;
+
+
+if (flightActivity.airports.length > 0) {
+
+    airportListElement.innerHTML =
+        flightActivity.airports
+            .map(code => {
+
+                const airport =
+                    airportsData[code];
+
+                return `
+                    <span
+                        class="country-airport-code"
+                        title="${airport.name}"
+                    >
+                        ${code}
+                    </span>
+                `;
+
+            })
+            .join("");
+
+} else {
+
+    airportListElement.textContent =
+        "No logged airports";
+
+}    
     // -----------------------------------------
     // VISITED
     // -----------------------------------------
@@ -490,7 +670,9 @@ function showCountryDetails(
 
 function drawCountries(
     worldData,
-    travelData
+    travelData,
+    flightsData,
+    airportsData
 ) {
 
     L.geoJSON(
@@ -579,8 +761,10 @@ function drawCountries(
 
                         showCountryDetails(
                             countryName,
-                            travelData
-                        );
+                            travelData,
+                            flightsData,
+                            airportsData
+                    );
 
                     }
                 );
