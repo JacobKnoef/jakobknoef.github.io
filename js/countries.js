@@ -556,7 +556,10 @@ function getCountryVisitActivity(
         places:
             Array.from(
                 places
-            )
+            ),
+
+        history:
+            visits
 
     };
 
@@ -657,6 +660,10 @@ function showCountryDetails(
             "country-places-list"
         );
 
+    const visitHistoryElement =
+    document.getElementById(
+        "country-visit-history-list"
+        );    
 
     const noteElement =
         document.getElementById(
@@ -728,6 +735,64 @@ function showCountryDetails(
 
     }
 
+    // -------------------------------------
+// VISIT HISTORY
+// -------------------------------------
+
+if (
+    visitActivity.history.length > 0
+) {
+
+    const sortedVisits =
+        [...visitActivity.history]
+            .sort(
+                (a, b) =>
+                    b.year - a.year
+            );
+
+
+    visitHistoryElement.innerHTML =
+        sortedVisits
+            .map(
+                visit => {
+
+                    const places =
+                        Array.isArray(
+                            visit.places
+                        ) &&
+                        visit.places.length > 0
+
+                            ? visit.places.join(
+                                " • "
+                            )
+
+                            : "No places recorded";
+
+
+                    return `
+                        <div class="country-visit-entry">
+
+                            <span class="country-visit-year">
+                                ${visit.year}
+                            </span>
+
+                            <div class="country-visit-places">
+                                ${places}
+                            </div>
+
+                        </div>
+                    `;
+
+                }
+            )
+            .join("");
+
+        } else {
+
+            visitHistoryElement.textContent =
+            "No visit history recorded yet";
+
+}
 
     // -------------------------------------
     // RESET STATUS BADGE

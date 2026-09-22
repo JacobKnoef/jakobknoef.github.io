@@ -1073,3 +1073,56 @@ footer {
     font-size: 14px;
     line-height: 1.7;
 }
+
+/* ================================
+   COUNTRY VISIT HISTORY
+================================ */
+
+.country-visit-history {
+    margin-top: 14px;
+
+    background: #111a22;
+    border: 1px solid #26313b;
+    border-radius: 11px;
+
+    padding: 15px 18px;
+}
+
+
+#country-visit-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.country-visit-entry {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #26313b;
+}
+
+
+.country-visit-entry:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+
+.country-visit-year {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.country-visit-places {
+    color: #8fa3b7;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
